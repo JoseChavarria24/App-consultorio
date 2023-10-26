@@ -172,10 +172,6 @@ public class ValoracionTerapiaFisica extends JPanel {
 
     JScrollPane sb_panel;
 
-    public void MetodPrueba(){
-   int pe=1;
-   pe+=2;
-    }
     public ValoracionTerapiaFisica() {
         agregarComponentes();
     }
