@@ -1,9 +1,9 @@
 package vista;
 
+import controlador.Coordinador;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import utilerias.*;
 
 public class ValoracionTerapiaFisica extends JPanel {
 
@@ -185,15 +185,19 @@ public class ValoracionTerapiaFisica extends JPanel {
         Color color_fondo = new Color(224, 224, 224, 100);
         
         //Componentes del Panel 10 Botones (Falta modificar posiciones)
-        btn_guardar = new JButton("Guardar");
-        btn_borrar = new JButton("Borrar");
-        btn_nuevoRegistro = new JButton("Nuevo Registro");
-        
+//        btn_guardar = new JButton("Guardar");
+//        btn_borrar = new JButton("Borrar");
+//        btn_nuevoRegistro = new JButton("Nuevo Registro");
+//        
+//        agregarComponentes(panel_botones, btn_guardar, 0, 0, 2, 1, 0, 0, fill, insets, 5, 5);
+//        agregarComponentes(panel_botones, btn_borrar, 0, 0, 2, 1, 0, 0, fill, insets, 5, 5);
+//        agregarComponentes(panel_botones, btn_nuevoRegistro, 0, 0, 2, 1, 0, 0, fill, insets, 5, 5);
+        //////////////////////////////////////////////////////////////////////////////////////////
         panel_uno = new JPanel(new GridBagLayout());
         panel_uno.setBackground(color_fondo);
         panel_dos = new JPanel(new GridBagLayout());
         panel_dos.setBackground(color_fondo);
-        panel_botones = new JPanel(new FlowLayout());
+        panel_botones = new JPanel(new GridBagLayout());
         
         panel_tres = new JPanel();
         panel_tres.setBackground(color_fondo);
@@ -614,27 +618,8 @@ public class ValoracionTerapiaFisica extends JPanel {
         lbl_9_inicial = new JLabel("Inicial:");
         lbl_9_final = new JLabel("Final:");
 
-        lbl_titulo9.setForeground(color_lbl);
-        lbl_dolorRPID.setForeground(color_lbl);
-        lbl_eva.setForeground(color_lbl);
-        lbl_noV.setForeground(color_lbl);
-        lbl_wB.setForeground(color_lbl);
         lbl_9_inicial.setForeground(color_lbl);
         lbl_9_final.setForeground(color_lbl);
-
-        lbl_9_inicial.setForeground(color_lbl);
-        lbl_9_final.setForeground(color_lbl);
-        lbl_9_inicial.setFont(Fuente_lbl);
-        lbl_9_final.setFont(Fuente_lbl);
-        
-        lbl_titulo9.setFont(Fuente_lbl);
-        lbl_dolorRPID.setFont(Fuente_lbl);
-        lbl_eva.setFont(Fuente_lbl);
-        lbl_noV.setFont(Fuente_lbl);
-        lbl_wB.setFont(Fuente_lbl);
-        lbl_9_inicial.setFont(Fuente_lbl);
-        lbl_9_final.setFont(Fuente_lbl);
-
         lbl_9_inicial.setFont(Fuente_lbl);
         lbl_9_final.setFont(Fuente_lbl);
 
@@ -784,7 +769,7 @@ public class ValoracionTerapiaFisica extends JPanel {
         agregarComponentes(panel_tres,txt_3_FR, 14,4,1,1,1.0, 1.0, fill, insets, 10, 10);
         
         fill=GridBagConstraints.HORIZONTAL;
-        agregarComponentes(panel_cuatro,lbl_4_Diagnsotico_medico, 1,6,14,1,1.0, 1.0, fill, insets, 10, 10);        
+        agregarComponentes(panel_cuatro,lbl_4_Diagnsotico_medico, 1,6,14,4,1.0, 1.0, fill, insets, 10, 10);        
         fill=GridBagConstraints.HORIZONTAL;
         agregarComponentes(panel_cuatro,lbl_4_Exploracion_neurologica, 1,7,14,1,1.0, 1.0, fill, insets, 10, 10);        
         fill=GridBagConstraints.BOTH;
@@ -805,10 +790,10 @@ public class ValoracionTerapiaFisica extends JPanel {
         agregarComponentes(panel_cuatro,txt_4_Otros, 11,9,4,1,1.0, 1.0, fill, insets, 10, 10);       
         
         fill=GridBagConstraints.BOTH;
-        agregarComponentes(panel_cinco,lbl_5_Espamos, 1,11,14,1,1.0, 1.0, fill, insets, 10, 10);        
+        agregarComponentes(panel_cinco,lbl_5_Espamos, 1,11,2,1,1.0, 1.0, fill, insets, 10, 10);        
         fill=GridBagConstraints.BOTH;
         agregarComponentes(panel_cinco,lbl_5_Sitio, 1,12,14,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.HORIZONTAL;
+        fill=GridBagConstraints.BOTH;
         agregarComponentes(panel_cinco,txt_5_Sitio, 1,13,14,1,1.0, 1.0, fill, insets, 10, 10);
         
         //se coloca titulo de panel seis 
@@ -975,7 +960,7 @@ public class ValoracionTerapiaFisica extends JPanel {
         agregarComponentes(p_nueve_final,cb_inicial, 1,0,1,1,1.0, 1.0, fill, insets, 10, 10);
         agregarComponentes(p_nueve_final,lbl_9_final, 2,0,1,1,1.0, 1.0, fill, insets, 10, 10);
         agregarComponentes(p_nueve_final,cb_final, 3,0,1,1,1.0, 1.0, fill, insets, 10, 10);
-
+        
 
         GridBagConstraints gbcPanel = new GridBagConstraints();
         this.setLayout(new GridBagLayout());
@@ -1044,32 +1029,9 @@ public class ValoracionTerapiaFisica extends JPanel {
         gbcPanel.gridheight = 1;
 
         this.add(panel_nueve, gbcPanel);
-        
-        gbcPanel.gridx = 0;
-        gbcPanel.gridy = 9;
-        gbcPanel.gridwidth = 1;
-        gbcPanel.gridheight = 1;
 
-        this.add(panel_botones, gbcPanel);
-        
-        panel_botones.add(btn_guardar, FlowLayout.LEFT);
-        panel_botones.add(btn_borrar, FlowLayout.CENTER);
-        panel_botones.add(btn_nuevoRegistro, FlowLayout.RIGHT);
-        
-        btn_guardar.addMouseListener(new WrapperMouse(){
-            public void MouseClicked(){
-                    String nombreP = txt_nombre.getText();
-                    int matricula = Integer.parseInt(txt_matricula.getText());
-                    int edad = Integer.parseInt(txt_edad.getText());
-                    int telefono = Integer.parseInt(txt_telefono.getText());
-                    int estadoCivil = Integer.parseInt(txt_estadoCivil.getText());
-                    String religion = txt_religion.getText();
-                    String ocupacion = txt_ocupacion.getText();
-                    
-            }     
-                    
-        });
     }
+
     //Método para acomodo de gridBag
     private void agregarComponentes(JPanel panel, Component componente, int columna, int fila, int ancho, int alto, double pesoX, double pesoY, int fill, Insets insets, int ipadx, int ipady) {
         GridBagConstraints gbc = new GridBagConstraints();
@@ -1161,5 +1123,11 @@ public class ValoracionTerapiaFisica extends JPanel {
             }
         }
         return false;
+    }
+
+    Coordinador coordinador;
+
+    public void setCoordinador(Coordinador coordinador) {
+        this.coordinador = coordinador;
     }
 }

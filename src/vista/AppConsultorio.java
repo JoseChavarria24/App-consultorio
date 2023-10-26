@@ -4,7 +4,12 @@
  */
 package vista;
 
+
+import Repositorio.RepositorioPacientes;
+import modelo.excepciones.DiaInvalido;
+import modelo.excepciones.MesInvalido;
 import vista.*;
+import vista.Menu;
 
 /**
  *José Santos Chavarría Valdez     
@@ -15,9 +20,13 @@ public class AppConsultorio {
     
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws DiaInvalido, MesInvalido {
         Menu app = new Menu();
         app.setVisible(true);
+        
+        
+        RepositorioPacientes.CargaDatosPaciente();
+        RepositorioPacientes.getArregloPacientes();
     }
     
 }

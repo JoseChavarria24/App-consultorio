@@ -1,13 +1,16 @@
 package vista;
 
 import java.awt.*;
-
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.*;
+import vista.TablaPacientes;
+import vista.ValoracionTerapiaFisica;
+import vista.ValoracionTerapiaFisica;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
-import utilerias.*;
 
 /**
  * José Santos Chavarría Valdez
@@ -36,8 +39,7 @@ public class Menu extends JFrame {
         setTitle("APP SUBPANELES");//titulo de la vnetana
         iniciarComponentes();
         eventos();
-        //configuracion del JFrame
-        JPanel panel_contenedor = new JPanel(); // Crea un nuevo panel.
+        
 
         JScrollPane sb_panel = new JScrollPane(panel_centro);
         sb_panel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -45,6 +47,14 @@ public class Menu extends JFrame {
         Dimension medida = Toolkit.getDefaultToolkit().getScreenSize();
         int pantalla_alto = (int) medida.getWidth();
         int pantalla_ancho = (int) medida.getHeight();
+        
+        sb_panel.getVerticalScrollBar().addAdjustmentListener(new AdjustmentListener() {
+            @Override
+            public void adjustmentValueChanged(AdjustmentEvent e) {
+                repaint();
+            }
+        });
+        
 
         this.setBackground(new Color(224, 224, 224));
         this.add(sb_panel);
@@ -92,7 +102,7 @@ public class Menu extends JFrame {
         panel_oeste3.setBackground(Color.BLUE);
         panel_oeste4.setBackground(Color.orange);
         panel_centro.setBackground(Color.darkGray);
-
+        
         //panel norte
         panel_norte.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 10));//Seleccion de layout para el panel norte
         panel_norte.add(lbl_titulo);
@@ -123,90 +133,149 @@ public class Menu extends JFrame {
         this.add(panel_norte, BorderLayout.NORTH);
         this.add(panel_oeste, BorderLayout.WEST);
         this.add(panel_centro, BorderLayout.CENTER);
-
     }
 
     private void eventos() {
-        panel_oeste0.addMouseListener(new WrapperMouse(){
+        panel_oeste0.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                //mostrarPanel(new DatosPersonas());
+                mostrarPanel(new ValoracionTerapiaFisica());
             }
-            
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
             @Override
             public void mouseEntered(MouseEvent e) {
                 panel_oeste0.setBackground(Color.DARK_GRAY);
                 lbl_oeste0.setForeground(Color.cyan);
 
             }
-            
+
             @Override
             public void mouseExited(MouseEvent e) {
                 panel_oeste0.setBackground(Color.cyan);
                 lbl_oeste0.setForeground(Color.black);
             }
         });
-        
-        panel_oeste1.addMouseListener(new WrapperMouse(){
+
+        panel_oeste1.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                mostrarPanel(new ValoracionTerapiaFisica());
+                mostrarPanel(new TablaPacientes());
             }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
             @Override
             public void mouseEntered(MouseEvent e) {
                 panel_oeste1.setBackground(Color.magenta);
                 lbl_oeste1.setForeground(Color.green);
 
             }
+
+            @Override
             public void mouseExited(MouseEvent e) {
                 panel_oeste1.setBackground(Color.green);
                 lbl_oeste1.setForeground(Color.black);
             }
         });
 
-        panel_oeste2.addMouseListener(new WrapperMouse(){
+        panel_oeste2.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                mostrarPanel(new ValoracionTerapiaFisica());
+                mostrarPanel(new TablaPacientes());
             }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
             @Override
             public void mouseEntered(MouseEvent e) {
                 panel_oeste2.setBackground(Color.green);
                 lbl_oeste2.setForeground(Color.black);
             }
+
             @Override
             public void mouseExited(MouseEvent e) {
                 panel_oeste2.setBackground(Color.magenta);
                 lbl_oeste2.setForeground(Color.white);
             }
         });
-        
-        panel_oeste3.addMouseListener(new WrapperMouse(){
+
+        panel_oeste3.addMouseListener(new MouseListener() {
             @Override
-                public void mouseClicked(MouseEvent e) {
-                    //mostrarPanel(new vFecha());
-                }
-                public void mouseEntered(MouseEvent e) {
-                    panel_oeste3.setBackground(Color.white);
-                    lbl_oeste3.setForeground(Color.blue);
-                }
-                @Override
-                public void mouseExited(MouseEvent e) {
-                    panel_oeste3.setBackground(Color.blue);
-                    lbl_oeste3.setForeground(Color.white);
-                }
+            public void mouseClicked(MouseEvent e) {
+            mostrarPanel(new Botones());
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                panel_oeste3.setBackground(Color.white);
+                lbl_oeste3.setForeground(Color.blue);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                panel_oeste3.setBackground(Color.blue);
+                lbl_oeste3.setForeground(Color.white);
+            }
         });
 
-        panel_oeste4.addMouseListener(new WrapperMouse(){
+        panel_oeste4.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 System.exit(0);
             }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
             @Override
             public void mouseEntered(MouseEvent e) {
                 panel_oeste4.setBackground(Color.cyan);
                 lbl_oeste4.setForeground(Color.white);
             }
+
             @Override
             public void mouseExited(MouseEvent e) {
                 panel_oeste4.setBackground(Color.orange);
@@ -216,8 +285,9 @@ public class Menu extends JFrame {
     }
 
     private void mostrarPanel(JPanel ventana) {
+        
         panel_centro.removeAll();
-        panel_centro.add(ventana);
+        panel_centro.add(ventana,BorderLayout.CENTER);
         panel_centro.revalidate();
         panel_centro.repaint();
     }
