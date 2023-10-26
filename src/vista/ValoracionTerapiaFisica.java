@@ -173,7 +173,8 @@ public class ValoracionTerapiaFisica extends JPanel {
     JScrollPane sb_panel;
 
     public void MetodPrueba(){
-        //metodo de prueba para ver el gitHub
+   int pe=1;
+   pe+=2;
     }
     public ValoracionTerapiaFisica() {
         agregarComponentes();
