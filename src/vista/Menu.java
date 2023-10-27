@@ -40,6 +40,7 @@ public class Menu extends JFrame {
         iniciarComponentes();
         eventos();
         
+        int intento;
 
         JScrollPane sb_panel = new JScrollPane(panel_centro);
         sb_panel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
