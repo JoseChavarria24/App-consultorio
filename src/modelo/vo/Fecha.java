@@ -143,8 +143,7 @@ public class Fecha{
 
     @Override
     public String toString() {
-        return "ClaseFecha{" + "dia=" + dia + ", mes=" + mes + ", anio=" + año + '}';
-    }
-    
+        return dia + "/" + mes + "/" + año;
+    }    
     
 }
