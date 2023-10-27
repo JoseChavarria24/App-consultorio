@@ -4,6 +4,8 @@ import controlador.Coordinador;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+import utilerias.WrapperMouse;
 
 public class ValoracionTerapiaFisica extends JPanel {
 
@@ -151,6 +153,7 @@ public class ValoracionTerapiaFisica extends JPanel {
     JPanel p_9_espacio11;
     JPanel p_9_espacio12;
 
+
     JLabel lbl_titulo9;
     JLabel lbl_dolorRPID;
     JLabel lbl_eva;
@@ -165,9 +168,9 @@ public class ValoracionTerapiaFisica extends JPanel {
     JComboBox cb_final;
     JComboBox cb_inicial;
 
-    //Panel panel_botones
+    JPanel panel_Botones;
     JButton btn_guardar;
-    JButton btn_borrar;
+    JButton btn_limpiar;
     JButton btn_nuevoRegistro;
 
     JScrollPane sb_panel;
@@ -181,23 +184,19 @@ public class ValoracionTerapiaFisica extends JPanel {
         int fill = GridBagConstraints.HORIZONTAL;  
         Font Fuente_lbl = new Font("Arial", Font.BOLD, 15);
         Font Fuente_titulo = new Font("Arial", Font.BOLD, 20);
-        Color color_lbl = new Color(0, 102, 204, 100);
+        Color color_lbl = new Color(0,0,0);
         Color color_fondo = new Color(224, 224, 224, 100);
         
         //Componentes del Panel 10 Botones (Falta modificar posiciones)
-//        btn_guardar = new JButton("Guardar");
-//        btn_borrar = new JButton("Borrar");
-//        btn_nuevoRegistro = new JButton("Nuevo Registro");
-//        
-//        agregarComponentes(panel_botones, btn_guardar, 0, 0, 2, 1, 0, 0, fill, insets, 5, 5);
-//        agregarComponentes(panel_botones, btn_borrar, 0, 0, 2, 1, 0, 0, fill, insets, 5, 5);
-//        agregarComponentes(panel_botones, btn_nuevoRegistro, 0, 0, 2, 1, 0, 0, fill, insets, 5, 5);
-        //////////////////////////////////////////////////////////////////////////////////////////
+        btn_guardar = new JButton("GUARDAR");
+        btn_limpiar = new JButton("LIMPIAR");
+        btn_nuevoRegistro = new JButton("NUEVO REGISTRO");
+        
         panel_uno = new JPanel(new GridBagLayout());
         panel_uno.setBackground(color_fondo);
         panel_dos = new JPanel(new GridBagLayout());
         panel_dos.setBackground(color_fondo);
-        panel_botones = new JPanel(new GridBagLayout());
+        panel_Botones = new JPanel(new FlowLayout());
         
         panel_tres = new JPanel();
         panel_tres.setBackground(color_fondo);
@@ -460,29 +459,29 @@ public class ValoracionTerapiaFisica extends JPanel {
         lbl_titulo_siete = new JLabel("MARCHA");
         lbl_titulo_ocho = new JLabel("TRASLADOS");
         lbl_sitio = new JLabel("SITIO");
-        lbl_queloide = new JLabel("QUELOIDE");
-        lbl_retractil = new JLabel("RETRACTIL");
-        lbl_abierta = new JLabel("ABIERTA");
-        lbl_adherencias = new JLabel("CON ADHERENCIAS");
-        lbl_hipertrofica = new JLabel("HIPERTROFICA");
-        lbl_titulo_siete = new JLabel("MARCHA");
-        lbl_libre = new JLabel("LIBRE");
-        lbl_claudicante = new JLabel("CLAUDICANTE");
-        lbl_ayuda = new JLabel("CON AYUDAS");
-        lbl_espastica = new JLabel("ESPÁSTICA");
-        lbl_ataxica = new JLabel("ATÁXICA");
-        lbl_otras = new JLabel("OTRAS");
+        lbl_queloide = new JLabel();
+        lbl_retractil = new JLabel();
+        lbl_abierta = new JLabel();
+        lbl_adherencias = new JLabel();
+        lbl_hipertrofica = new JLabel();
+        lbl_titulo_siete = new JLabel();
+        lbl_libre = new JLabel();
+        lbl_claudicante = new JLabel();
+        lbl_ayuda = new JLabel();
+        lbl_espastica = new JLabel();
+        lbl_ataxica = new JLabel();
+        lbl_otras = new JLabel();
         lbl_titulo_ocho = new JLabel("TRASLADOS");
         lbl_valInicial = new JLabel("VALORACION INICIAL");
-        lbl_indpendiente = new JLabel("INDEPENTIENTE");
-        lbl_sillaDeRuedas = new JLabel("EN SILLA DE RRUEDAS");
-        lbl_ayudas = new JLabel("CON AYUDAS");
-        lbl_camilla = new JLabel("CAMILLA");
+        lbl_indpendiente = new JLabel();
+        lbl_sillaDeRuedas = new JLabel();
+        lbl_ayudas = new JLabel();
+        lbl_camilla = new JLabel();
         lbl_valFinal = new JLabel("VALORACION FINAL");
-        lbl_independienteFinal = new JLabel("INDEPENDIENTE");
-        lbl_sillaDeRuedasFinal = new JLabel("EN SILLA DE RRUEDAS");
-        lbl_ayudasFinal = new JLabel("CON AYUDAS");
-        lbl_camillaFinal = new JLabel("CAMILLA");
+        lbl_independienteFinal = new JLabel();
+        lbl_sillaDeRuedasFinal = new JLabel();
+        lbl_ayudasFinal = new JLabel();
+        lbl_camillaFinal = new JLabel();
         
         //se aplican las fuentes a las etiquetas
         lbl_titulo_seis.setFont(Fuente_titulo);
@@ -567,6 +566,25 @@ public class ValoracionTerapiaFisica extends JPanel {
         //se aplica la fuente a los checkBox
         txt_sitio.setFont(Fuente_lbl);
         txt_otras.setFont(Fuente_lbl);
+        ck_queloide.setText("QUELOIDE");
+        ck_retractil.setText("RETRACTIL");
+        ck_abierta.setText("ABIERTA");
+        ck_adherencias.setText("CON ADHERENCIAS");
+        ck_hipertrofica.setText("HIPERTROFICAS");
+        ck_libre.setText("LIBRE");
+        ck_claudicante.setText("CLAUDICANTE");
+        ck_ayuda.setText("CON AYUDAS");
+        ck_espastica.setText("ESPASTICA");
+        ck_ataxica.setText("ATAXICA");
+        ck_independiente.setText("INDEPENDIETE");
+        ck_sillaDeRuedas.setText("EN SILLA DE RUEDAS");
+        ck_sillaDeRuedasFinal.setText("EN SILLA DE RUEDAS");
+        ck_ayudas.setText("CON AYUDAS");
+        ck_camilla.setText("EN CAMILLA");
+        ck_independienteFinal.setText("INDEPENDIENTE");
+        ck_ayudasFinal.setText("CON AYUDAS");
+        ck_camillaFinal.setText("EN CAMILLA");
+        
         ck_queloide.setFont(Fuente_lbl);
         ck_retractil.setFont(Fuente_lbl);
         ck_abierta.setFont(Fuente_lbl);
@@ -769,9 +787,9 @@ public class ValoracionTerapiaFisica extends JPanel {
         agregarComponentes(panel_tres,txt_3_FR, 14,4,1,1,1.0, 1.0, fill, insets, 10, 10);
         
         fill=GridBagConstraints.HORIZONTAL;
-        agregarComponentes(panel_cuatro,lbl_4_Diagnsotico_medico, 1,6,14,4,1.0, 1.0, fill, insets, 10, 10);        
+        agregarComponentes(panel_cuatro,lbl_4_Exploracion_neurologica, 1,5,14,4,1.0, 1.0, fill, insets, 10, 10);        
         fill=GridBagConstraints.HORIZONTAL;
-        agregarComponentes(panel_cuatro,lbl_4_Exploracion_neurologica, 1,7,14,1,1.0, 1.0, fill, insets, 10, 10);        
+        agregarComponentes(panel_cuatro,lbl_4_Diagnsotico_medico, 1,7,14,1,1.0, 1.0, fill, insets, 10, 10);        
         fill=GridBagConstraints.BOTH;
         agregarComponentes(panel_cuatro,lbl_4_Reflejos, 1,8,4,1,1.0, 1.0, fill, insets, 10, 10);        
         fill=GridBagConstraints.BOTH;
@@ -790,11 +808,11 @@ public class ValoracionTerapiaFisica extends JPanel {
         agregarComponentes(panel_cuatro,txt_4_Otros, 11,9,4,1,1.0, 1.0, fill, insets, 10, 10);       
         
         fill=GridBagConstraints.BOTH;
-        agregarComponentes(panel_cinco,lbl_5_Espamos, 1,11,2,1,1.0, 1.0, fill, insets, 10, 10);        
+        agregarComponentes(panel_cuatro,lbl_5_Espamos, 1,10,14,1,1.0, 1.0, fill, insets, 10, 10);        
         fill=GridBagConstraints.BOTH;
-        agregarComponentes(panel_cinco,lbl_5_Sitio, 1,12,14,1,1.0, 1.0, fill, insets, 10, 10);
+        agregarComponentes(panel_cuatro,lbl_5_Sitio, 1,11,14,1,1.0, 1.0, fill, insets, 10, 10);
         fill=GridBagConstraints.BOTH;
-        agregarComponentes(panel_cinco,txt_5_Sitio, 1,13,14,1,1.0, 1.0, fill, insets, 10, 10);
+        agregarComponentes(panel_cuatro,txt_5_Sitio, 1,12,14,1,1.0, 1.0, fill, insets, 10, 10);
         
         //se coloca titulo de panel seis 
         fill = GridBagConstraints.BOTH;
@@ -960,7 +978,10 @@ public class ValoracionTerapiaFisica extends JPanel {
         agregarComponentes(p_nueve_final,cb_inicial, 1,0,1,1,1.0, 1.0, fill, insets, 10, 10);
         agregarComponentes(p_nueve_final,lbl_9_final, 2,0,1,1,1.0, 1.0, fill, insets, 10, 10);
         agregarComponentes(p_nueve_final,cb_final, 3,0,1,1,1.0, 1.0, fill, insets, 10, 10);
-        
+
+        panel_Botones.add(btn_limpiar);
+        panel_Botones.add(btn_guardar);
+        panel_Botones.add(btn_nuevoRegistro);
 
         GridBagConstraints gbcPanel = new GridBagConstraints();
         this.setLayout(new GridBagLayout());
@@ -1029,6 +1050,183 @@ public class ValoracionTerapiaFisica extends JPanel {
         gbcPanel.gridheight = 1;
 
         this.add(panel_nueve, gbcPanel);
+        
+        gbcPanel.gridx = 0;
+        gbcPanel.gridy = 9;
+        gbcPanel.gridwidth = 1;
+        gbcPanel.gridheight = 1;
+
+        this.add(panel_Botones, gbcPanel);
+        
+        btn_limpiar.addMouseListener(new WrapperMouse(){
+            @Override
+            public void mouseClicked(MouseEvent e){
+                //panel 1
+                txt_fecha.setText("");
+                txt_nombre.setText("");
+                txt_matricula.setText("");
+                txt_sexo.setText("");
+                txt_edad.setText("");
+                txt_sala.setText("");
+                txt_telefono.setText("");
+                txt_religion.setText("");
+                txt_ocupacion.setText("");
+                txt_estadoCivil.setText("");
+                txt_medicoTratante.setText("");
+                //panel 2
+                txt_origen.setText("");
+                txt_radica.setText("");
+                txt_eciv.setText("");
+                txt_ocup.setText("");
+                txt_escolaridad.setText("");
+                txt_svsMunicipales.setText("");
+                txt_religion2.setText("");
+                txt_habitacion.setText("");
+                chk_tabaquismo.setSelected(false);
+                chk_etilismo.setSelected(false);
+                txt_higienePnal.setText("");
+                txt_alimentacion.setText("");
+                txt_pasatiempo.setText("");
+                txt_otros.setText("");
+                txt_dominio.setText("");
+                txt_hijos.setText("");
+                //panel 3
+                cb_3_Diabetes.setSelected(false);
+                cb_3_HTA.setSelected(false);
+                cb_3_Cancer.setSelected(false);
+                cb_3_EnfReumat.setSelected(false);
+                cb_3_Cardiopatias.setSelected(false);
+                cb_3_Cirugias.setSelected(false);
+                cb_3_Alergias.setSelected(false);
+                cb_3_Transfusiones.setSelected(false);
+                cb_3_Accidentes.setSelected(false);
+                cb_3_Encames.setSelected(false);
+                cb_3_Fracturas.setSelected(false);
+                txt_3_TA.setText("");
+                txt_3_TEMP.setText("");
+                txt_3_FC.setText("");
+                txt_3_FR.setText("");
+                //panel 4
+                txt_4_Rfelejos.setText("");
+                txt_4_Sensibilidad.setText("");
+                txt_4_Lenguaje_Orientacion.setText("");
+                txt_4_Otros.setText("");
+
+                //panel 5
+                txt_5_Sitio.setText("");
+                //panel 6
+                txt_sitio.setText("");
+                ck_queloide.setSelected(false);
+                ck_retractil.setSelected(false);
+                ck_abierta.setSelected(false);
+                ck_adherencias.setSelected(false);
+                ck_hipertrofica.setSelected(false);
+                //panel 7
+                ck_libre.setSelected(false);
+                ck_claudicante.setSelected(false);
+                ck_ayuda.setSelected(false);
+                ck_espastica.setSelected(false);
+                ck_ataxica.setSelected(false);
+                txt_otras.setText("");
+                //panel 8
+                ck_independiente.setSelected(false);
+                ck_sillaDeRuedas.setSelected(false);
+                ck_ayudas.setSelected(false);
+                ck_camilla.setSelected(false);
+                ck_independienteFinal.setSelected(false);
+                ck_sillaDeRuedasFinal.setSelected(false);
+                ck_ayudasFinal.setSelected(false);
+                ck_camillaFinal.setSelected(false);
+                //panel 9
+                txt_campoDolor.setText("");
+                cb_escala.setSelectedIndex(0);
+                cb_final.setSelectedIndex(0);
+                cb_inicial.setSelectedIndex(0);
+            }
+        });
+        btn_guardar.addMouseListener(new WrapperMouse(){
+            @Override
+            public void mouseClicked(MouseEvent e){
+                //panel 1
+                String fecha = txt_fecha.getText();
+                String nombre = txt_nombre.getText();
+                String matricula = txt_matricula.getText();
+                String sexo = txt_sexo.getText();
+                String edad = txt_edad.getText();
+                String sala = txt_sala.getText();
+                String telefono = txt_telefono.getText();
+                String religion = txt_religion.getText();
+                String ocupacion = txt_ocupacion.getText();
+                String edoCivil = txt_estadoCivil.getText();
+                String medicoTratante = txt_medicoTratante.getText();
+                //panel 2
+                String origen = txt_origen.getText();
+                String radica = txt_radica.getText();
+                String escolaridad = txt_escolaridad.getText();
+                String svsMunicipales = txt_svsMunicipales.getText();
+                String habitacion = txt_habitacion.getText();
+                boolean tabaquismo = chk_tabaquismo.isSelected();
+                boolean etilismo = chk_etilismo.isSelected();
+                String higienePnal = txt_higienePnal.getText();
+                String alimentacion = txt_alimentacion.getText();
+                String pasatiempo = txt_pasatiempo.getText();
+                String otros = txt_otros.getText();
+                String dominio = txt_dominio.getText();
+                String hijos = txt_hijos.getText();
+                //panel 3
+                boolean diabetes = cb_3_Diabetes.isSelected();
+                boolean HTA = cb_3_HTA.isSelected();
+                boolean cancer = cb_3_Cancer.isSelected();
+                boolean enfReumat = cb_3_EnfReumat.isSelected();
+                boolean cardiopatias =  cb_3_Cardiopatias.isSelected();
+                boolean cirugias = cb_3_Cirugias.isSelected();
+                boolean alergias = cb_3_Alergias.isSelected();
+                boolean transfusiones = cb_3_Transfusiones.isSelected();
+                boolean accidentes = cb_3_Accidentes.isSelected();
+                boolean encames = cb_3_Encames.isSelected();
+                boolean fracturas = cb_3_Fracturas.isSelected();
+                String TA = txt_3_TA.getText();
+                String TEMP = txt_3_TEMP.getText();
+                String FC = txt_3_FC.getText();
+                String FR = txt_3_FR.getText();
+                //panel 4
+                String Reflejos = txt_4_Rfelejos.getText();
+                String Sensibilidad = txt_4_Sensibilidad.getText();
+                String LenguajeOrientacion = txt_4_Lenguaje_Orientacion.getText();
+                String otros_p_4 = txt_4_Otros.getText();
+
+                //panel 5
+                String sitio_p_5 = txt_5_Sitio.getText();
+                //panel 6
+                String sitio_p6=txt_sitio.getText();
+                boolean queloide = ck_queloide.isSelected();
+                boolean retractil = ck_retractil.isSelected();
+                boolean abierta = ck_abierta.isSelected();
+                boolean adherencias = ck_adherencias.isSelected();
+                boolean hipertroficca = ck_hipertrofica.isSelected();
+                //panel 7
+                boolean libre = ck_libre.isSelected();
+                boolean claudicante = ck_claudicante.isSelected();
+                boolean ayuda=ck_ayuda.isSelected();
+                boolean espastica = ck_espastica.isSelected();
+                boolean ataxica = ck_ataxica.isSelected();
+                String otras_p_7 = txt_otras.getText();
+                //panel 8
+                boolean independienteInicial = ck_independiente.isSelected();
+                boolean sillaDeRuedasInicial = ck_sillaDeRuedas.isSelected();
+                boolean ayudasInicial = ck_ayudas.isSelected();
+                boolean camillaInicial = ck_camilla.isSelected();
+                boolean independienteFinal = ck_independienteFinal.isSelected();
+                boolean sillaDeRuedasFinal = ck_sillaDeRuedasFinal.isSelected();
+                boolean ayudasFianl = ck_ayudasFinal.isSelected();
+                boolean camillaFinal = ck_camillaFinal.isSelected();
+                //panel 9
+                String campoDolor = txt_campoDolor.getText();
+                cb_escala.setSelectedIndex(0);
+                cb_final.setSelectedIndex(0);
+                cb_inicial.setSelectedIndex(0);
+            }
+        });
 
     }
 
