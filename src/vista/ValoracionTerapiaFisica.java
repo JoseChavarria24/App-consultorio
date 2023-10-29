@@ -1054,7 +1054,7 @@ public class ValoracionTerapiaFisica extends JPanel {
         gbcPanel.gridx = 0;
         gbcPanel.gridy = 9;
         gbcPanel.gridwidth = 1;
-        gbcPanel.gridheight = 1;
+        gbcPanel.gridheight = 2;
 
         this.add(panel_Botones, gbcPanel);
         
