@@ -3,12 +3,14 @@ package vista;
 import controlador.Coordinador;
 import javax.swing.*;
 import java.awt.*;
+import utilerias.MyTextField;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import utilerias.WrapperMouse;
 
-public class ValoracionTerapiaFisica extends JPanel {
+public final class ValoracionTerapiaFisica extends JPanel {
 
+    MouseEvent seleccion;
     //Llamado de los dos primeros páneles:
     JPanel panel_uno;
     JPanel panel_dos;
@@ -56,15 +58,15 @@ public class ValoracionTerapiaFisica extends JPanel {
     JLabel lbl_5_Espamos;
     JLabel lbl_5_Sitio;
 
-    JTextField txt_3_TA;
-    JTextField txt_3_TEMP;
-    JTextField txt_3_FC;
-    JTextField txt_3_FR;
-    JTextField txt_4_Rfelejos;
-    JTextField txt_4_Sensibilidad;
-    JTextField txt_4_Lenguaje_Orientacion;
-    JTextField txt_4_Otros;
-    JTextField txt_5_Sitio;
+    MyTextField txt_3_TA;
+    MyTextField txt_3_TEMP;
+    MyTextField txt_3_FC;
+    MyTextField txt_3_FR;
+    MyTextField txt_4_Rfelejos;
+    MyTextField txt_4_Sensibilidad;
+    MyTextField txt_4_Lenguaje_Orientacion;
+    MyTextField txt_4_Otros;
+    MyTextField txt_5_Sitio;
 
     JCheckBox cb_3_Diabetes;
     JCheckBox cb_3_HTA;
@@ -83,7 +85,7 @@ public class ValoracionTerapiaFisica extends JPanel {
     JPanel panel_seis;
     JLabel lbl_titulo_seis;
     JLabel lbl_sitio;
-    JTextField txt_sitio;
+    MyTextField txt_sitio;
     JLabel lbl_queloide;
     JCheckBox ck_queloide;
     JLabel lbl_retractil;
@@ -109,7 +111,7 @@ public class ValoracionTerapiaFisica extends JPanel {
     JLabel lbl_ataxica;
     JCheckBox ck_ataxica;
     JLabel lbl_otras;
-    JTextField txt_otras;
+    MyTextField txt_otras;
 
     //panel 8
     JPanel panel_ocho;
@@ -162,7 +164,7 @@ public class ValoracionTerapiaFisica extends JPanel {
     JLabel lbl_9_inicial;
     JLabel lbl_9_final;
 
-    JTextField txt_campoDolor;
+    MyTextField txt_campoDolor;
 
     JComboBox cb_escala;
     JComboBox cb_final;
@@ -277,17 +279,17 @@ public class ValoracionTerapiaFisica extends JPanel {
         lbl_estadoCivil.setForeground(color_lbl);
         lbl_medicoTratante.setForeground(color_lbl);
         
-        JTextField txt_fecha = new JTextField();
-        JTextField txt_nombre = new JTextField();
-        JTextField txt_matricula = new JTextField();
-        JTextField txt_sexo = new JTextField();
-        JTextField txt_edad = new JTextField();
-        JTextField txt_sala = new JTextField();
-        JTextField txt_telefono = new JTextField();
-        JTextField txt_religion = new JTextField();
-        JTextField txt_ocupacion = new JTextField();
-        JTextField txt_estadoCivil = new JTextField();
-        JTextField txt_medicoTratante = new JTextField();
+        MyTextField txt_fecha = new MyTextField();
+        MyTextField txt_nombre = new MyTextField();
+        MyTextField txt_matricula = new MyTextField();
+        MyTextField txt_sexo = new MyTextField();
+        MyTextField txt_edad = new MyTextField();
+        MyTextField txt_sala = new MyTextField();
+        MyTextField txt_telefono = new MyTextField();
+        MyTextField txt_religion = new MyTextField();
+        MyTextField txt_ocupacion = new MyTextField();
+        MyTextField txt_estadoCivil = new MyTextField();
+        MyTextField txt_medicoTratante = new MyTextField();
         
         //Componentes de panel dos
         JLabel lbl_origen = new JLabel("Origen:");
@@ -324,20 +326,20 @@ public class ValoracionTerapiaFisica extends JPanel {
         chk_tabaquismo.setForeground(color_lbl);
         chk_etilismo.setForeground(color_lbl);
         
-        JTextField txt_origen = new JTextField();
-        JTextField txt_radica = new JTextField();
-        JTextField txt_eciv = new JTextField();
-        JTextField txt_ocup = new JTextField();
-        JTextField txt_escolaridad = new JTextField();
-        JTextField txt_svsMunicipales = new JTextField();
-        JTextField txt_religion2 = new JTextField();
-        JTextField txt_habitacion = new JTextField();
-        JTextField txt_higienePnal = new JTextField();
-        JTextField txt_alimentacion = new JTextField();
-        JTextField txt_pasatiempo = new JTextField();
-        JTextField txt_otros = new JTextField();
-        JTextField txt_dominio = new JTextField();
-        JTextField txt_hijos = new JTextField();
+        MyTextField txt_origen = new MyTextField();
+        MyTextField txt_radica = new MyTextField();
+        MyTextField txt_eciv = new MyTextField();
+        MyTextField txt_ocup = new MyTextField();
+        MyTextField txt_escolaridad = new MyTextField();
+        MyTextField txt_svsMunicipales = new MyTextField();
+        MyTextField txt_religion2 = new MyTextField();
+        MyTextField txt_habitacion = new MyTextField();
+        MyTextField txt_higienePnal = new MyTextField();
+        MyTextField txt_alimentacion = new MyTextField();
+        MyTextField txt_pasatiempo = new MyTextField();
+        MyTextField txt_otros = new MyTextField();
+        MyTextField txt_dominio = new MyTextField();
+        MyTextField txt_hijos = new MyTextField();
         
         //componentes panel tres, cuatro y cinco
         lbl_3_Antecedentes_Patologicos = new JLabel();
@@ -394,15 +396,15 @@ public class ValoracionTerapiaFisica extends JPanel {
         lbl_5_Espamos.setForeground(color_lbl);
         lbl_5_Sitio.setForeground(color_lbl);
 
-        txt_3_TA = new JTextField();
-        txt_3_TEMP = new JTextField();
-        txt_3_FC = new JTextField();
-        txt_3_FR = new JTextField();
-        txt_4_Rfelejos = new JTextField();
-        txt_4_Sensibilidad = new JTextField();
-        txt_4_Lenguaje_Orientacion = new JTextField();
-        txt_4_Otros = new JTextField();
-        txt_5_Sitio = new JTextField();
+        txt_3_TA = new MyTextField();
+        txt_3_TEMP = new MyTextField();
+        txt_3_FC = new MyTextField();
+        txt_3_FR = new MyTextField();
+        txt_4_Rfelejos = new MyTextField();
+        txt_4_Sensibilidad = new MyTextField();
+        txt_4_Lenguaje_Orientacion = new MyTextField();
+        txt_4_Otros = new MyTextField();
+        txt_5_Sitio = new MyTextField();
 
         cb_3_Diabetes = new JCheckBox();
         cb_3_Diabetes.setBackground(color_fondo);
@@ -542,8 +544,8 @@ public class ValoracionTerapiaFisica extends JPanel {
         lbl_camillaFinal.setForeground(color_lbl);
 
         //creacion de los checkBox y el textField
-        txt_sitio = new JTextField();
-        txt_otras = new JTextField();
+        txt_sitio = new MyTextField();
+        txt_otras = new MyTextField();
         ck_queloide = new JCheckBox();
         ck_retractil = new JCheckBox();
         ck_abierta = new JCheckBox();
@@ -643,7 +645,7 @@ public class ValoracionTerapiaFisica extends JPanel {
 
         p_nueve_final.setBackground(color_fondo);
         p_nueve_final.setLayout(new GridBagLayout());
-        txt_campoDolor = new JTextField();
+        txt_campoDolor = new MyTextField();
 
         panel_nueve.setLayout(new GridBagLayout());
         panel_nueve.setBackground(color_fondo);
@@ -1054,7 +1056,7 @@ public class ValoracionTerapiaFisica extends JPanel {
         gbcPanel.gridx = 0;
         gbcPanel.gridy = 9;
         gbcPanel.gridwidth = 1;
-        gbcPanel.gridheight = 2;
+        gbcPanel.gridheight = 1;
 
         this.add(panel_Botones, gbcPanel);
         
@@ -1227,9 +1229,9 @@ public class ValoracionTerapiaFisica extends JPanel {
                 cb_inicial.setSelectedIndex(0);
             }
         });
-
+        
     }
-
+    
     //Método para acomodo de gridBag
     private void agregarComponentes(JPanel panel, Component componente, int columna, int fila, int ancho, int alto, double pesoX, double pesoY, int fill, Insets insets, int ipadx, int ipady) {
         GridBagConstraints gbc = new GridBagConstraints();
@@ -1324,7 +1326,7 @@ public class ValoracionTerapiaFisica extends JPanel {
     }
 
     Coordinador coordinador;
-
+    
     public void setCoordinador(Coordinador coordinador) {
         this.coordinador = coordinador;
     }
