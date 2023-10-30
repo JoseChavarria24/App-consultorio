@@ -6,11 +6,19 @@ import java.awt.*;
 import utilerias.MyTextField;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import modelo.excepciones.DiaInvalido;
+import modelo.excepciones.MesInvalido;
+import modelo.vo.Fecha;
+import modelo.vo.Paciente;
 import utilerias.WrapperMouse;
+import Repositorio.RepositorioPacientes;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public final class ValoracionTerapiaFisica extends JPanel {
 
     MouseEvent seleccion;
+    RepositorioPacientes repoPac = new RepositorioPacientes();
     //Llamado de los dos primeros páneles:
     JPanel panel_uno;
     JPanel panel_dos;
@@ -155,7 +163,6 @@ public final class ValoracionTerapiaFisica extends JPanel {
     JPanel p_9_espacio11;
     JPanel p_9_espacio12;
 
-
     JLabel lbl_titulo9;
     JLabel lbl_dolorRPID;
     JLabel lbl_eva;
@@ -183,30 +190,30 @@ public final class ValoracionTerapiaFisica extends JPanel {
 
     public void agregarComponentes() {
         Insets insets = new Insets(10, 10, 10, 10);
-        int fill = GridBagConstraints.HORIZONTAL;  
+        int fill = GridBagConstraints.HORIZONTAL;
         Font Fuente_lbl = new Font("Arial", Font.BOLD, 15);
         Font Fuente_titulo = new Font("Arial", Font.BOLD, 20);
-        Color color_lbl = new Color(0,0,0);
+        Color color_lbl = new Color(0, 0, 0);
         Color color_fondo = new Color(224, 224, 224, 100);
-        
+
         //Componentes del Panel 10 Botones (Falta modificar posiciones)
         btn_guardar = new JButton("GUARDAR");
         btn_limpiar = new JButton("LIMPIAR");
         btn_nuevoRegistro = new JButton("NUEVO REGISTRO");
-        
+
         panel_uno = new JPanel(new GridBagLayout());
         panel_uno.setBackground(color_fondo);
         panel_dos = new JPanel(new GridBagLayout());
         panel_dos.setBackground(color_fondo);
         panel_Botones = new JPanel(new FlowLayout());
-        
+
         panel_tres = new JPanel();
         panel_tres.setBackground(color_fondo);
         panel_cuatro = new JPanel();
         panel_cuatro.setBackground(color_fondo);
         panel_cinco = new JPanel();
         panel_cinco.setBackground(color_fondo);
-        
+
         panel_seis = new JPanel();
         panel_seis.setBackground(color_fondo);
         panel_seis.setLayout(new GridBagLayout());
@@ -216,7 +223,7 @@ public final class ValoracionTerapiaFisica extends JPanel {
         panel_ocho = new JPanel();
         panel_ocho.setBackground(color_fondo);
         panel_ocho.setLayout(new GridBagLayout());
-                
+
         panel_nueve = new JPanel();
         panel_nueve.setBackground(color_fondo);
         subtitulo = new JPanel();
@@ -227,7 +234,7 @@ public final class ValoracionTerapiaFisica extends JPanel {
         p_nueve_final.setBackground(color_fondo);
         p_escalaWB = new JPanel();
         p_escalaWB.setBackground(color_fondo);
-        
+
         p_9_espacio1 = new JPanel();
         p_9_espacio2 = new JPanel();
         p_9_espacio3 = new JPanel();
@@ -240,7 +247,7 @@ public final class ValoracionTerapiaFisica extends JPanel {
         p_9_espacio10 = new JPanel();
         p_9_espacio11 = new JPanel();
         p_9_espacio12 = new JPanel();
-        
+
         p_9_espacio1.setBackground(color_fondo);
         p_9_espacio2.setBackground(color_fondo);
         p_9_espacio3.setBackground(color_fondo);
@@ -266,7 +273,7 @@ public final class ValoracionTerapiaFisica extends JPanel {
         lbl_ocupacion = new JLabel("Ocupación:");
         lbl_estadoCivil = new JLabel("Estado Civil:");
         lbl_medicoTratante = new JLabel("Médico Tratante:");
-        
+
         lbl_fecha.setForeground(color_lbl);
         lbl_nombre.setForeground(color_lbl);
         lbl_matricula.setForeground(color_lbl);
@@ -278,7 +285,7 @@ public final class ValoracionTerapiaFisica extends JPanel {
         lbl_ocupacion.setForeground(color_lbl);
         lbl_estadoCivil.setForeground(color_lbl);
         lbl_medicoTratante.setForeground(color_lbl);
-        
+
         MyTextField txt_fecha = new MyTextField();
         MyTextField txt_nombre = new MyTextField();
         MyTextField txt_matricula = new MyTextField();
@@ -290,7 +297,7 @@ public final class ValoracionTerapiaFisica extends JPanel {
         MyTextField txt_ocupacion = new MyTextField();
         MyTextField txt_estadoCivil = new MyTextField();
         MyTextField txt_medicoTratante = new MyTextField();
-        
+
         //Componentes de panel dos
         JLabel lbl_origen = new JLabel("Origen:");
         JLabel lbl_radica = new JLabel("Radica:");
@@ -308,7 +315,7 @@ public final class ValoracionTerapiaFisica extends JPanel {
         JLabel lbl_otros = new JLabel("Otros:");
         JLabel lbl_dominio = new JLabel("Dominio:");
         JLabel lbl_hijos = new JLabel("Hijos:");
-        
+
         lbl_origen.setForeground(color_lbl);
         lbl_radica.setForeground(color_lbl);
         lbl_eciv.setForeground(color_lbl);
@@ -320,12 +327,12 @@ public final class ValoracionTerapiaFisica extends JPanel {
         lbl_higienePnal.setForeground(color_lbl);
         lbl_alimentacion.setForeground(color_lbl);
         lbl_pasatiempo.setForeground(color_lbl);
-        lbl_otros.setForeground(color_lbl);        
+        lbl_otros.setForeground(color_lbl);
         lbl_dominio.setForeground(color_lbl);
         lbl_hijos.setForeground(color_lbl);
         chk_tabaquismo.setForeground(color_lbl);
         chk_etilismo.setForeground(color_lbl);
-        
+
         MyTextField txt_origen = new MyTextField();
         MyTextField txt_radica = new MyTextField();
         MyTextField txt_eciv = new MyTextField();
@@ -340,7 +347,7 @@ public final class ValoracionTerapiaFisica extends JPanel {
         MyTextField txt_otros = new MyTextField();
         MyTextField txt_dominio = new MyTextField();
         MyTextField txt_hijos = new MyTextField();
-        
+
         //componentes panel tres, cuatro y cinco
         lbl_3_Antecedentes_Patologicos = new JLabel();
         lbl_3_Diabetes = new JLabel();
@@ -369,7 +376,7 @@ public final class ValoracionTerapiaFisica extends JPanel {
         lbl_3_Signos_Vitales.setForeground(color_lbl);
         lbl_3_Signos_Vitales.setForeground(color_lbl);
         lbl_3_Signos_Vitales.setForeground(color_lbl);
-        
+
         lbl_3_TA = new JLabel("T/A: ");
         lbl_3_Temp = new JLabel("TEMP: ");
         lbl_3_FC = new JLabel("FC: ");
@@ -382,7 +389,7 @@ public final class ValoracionTerapiaFisica extends JPanel {
         lbl_4_Otros = new JLabel("OTROS: ");
         lbl_5_Espamos = new JLabel("ESPAMOS O CONTRACTURA MUSCULAR");
         lbl_5_Sitio = new JLabel("SITIO: ");
-        
+
         lbl_3_TA.setForeground(color_lbl);
         lbl_3_Temp.setForeground(color_lbl);
         lbl_3_FC.setForeground(color_lbl);
@@ -455,7 +462,7 @@ public final class ValoracionTerapiaFisica extends JPanel {
 
         panel_tres.setLayout(new GridBagLayout());
         panel_cuatro.setLayout(new GridBagLayout());
-        
+
         //declaracoin de etiquetas panel seis, siete y ocho
         lbl_titulo_seis = new JLabel("CICATRIZ QUIRURGICA");
         lbl_titulo_siete = new JLabel("MARCHA");
@@ -484,7 +491,7 @@ public final class ValoracionTerapiaFisica extends JPanel {
         lbl_sillaDeRuedasFinal = new JLabel();
         lbl_ayudasFinal = new JLabel();
         lbl_camillaFinal = new JLabel();
-        
+
         //se aplican las fuentes a las etiquetas
         lbl_titulo_seis.setFont(Fuente_titulo);
         lbl_titulo_siete.setFont(Fuente_titulo);
@@ -513,7 +520,7 @@ public final class ValoracionTerapiaFisica extends JPanel {
         lbl_sillaDeRuedasFinal.setFont(Fuente_lbl);
         lbl_ayudasFinal.setFont(Fuente_lbl);
         lbl_camillaFinal.setFont(Fuente_lbl);
-        
+
         //cambio de color a la letra de las etiquetas
         lbl_titulo_seis.setForeground(color_lbl);
         lbl_titulo_siete.setForeground(color_lbl);
@@ -586,7 +593,7 @@ public final class ValoracionTerapiaFisica extends JPanel {
         ck_independienteFinal.setText("INDEPENDIENTE");
         ck_ayudasFinal.setText("CON AYUDAS");
         ck_camillaFinal.setText("EN CAMILLA");
-        
+
         ck_queloide.setFont(Fuente_lbl);
         ck_retractil.setFont(Fuente_lbl);
         ck_abierta.setFont(Fuente_lbl);
@@ -605,7 +612,7 @@ public final class ValoracionTerapiaFisica extends JPanel {
         ck_independienteFinal.setFont(Fuente_lbl);
         ck_ayudasFinal.setFont(Fuente_lbl);
         ck_camillaFinal.setFont(Fuente_lbl);
-        
+
         //se aplica el color de fondo a los checkbox
         ck_queloide.setBackground(color_fondo);
         ck_retractil.setBackground(color_fondo);
@@ -625,7 +632,7 @@ public final class ValoracionTerapiaFisica extends JPanel {
         ck_independienteFinal.setBackground(color_fondo);
         ck_ayudasFinal.setBackground(color_fondo);
         ck_camillaFinal.setBackground(color_fondo);
-                
+
         cb_escala = new JComboBox();
         cb_final = new JComboBox();
         cb_inicial = new JComboBox();
@@ -666,7 +673,7 @@ public final class ValoracionTerapiaFisica extends JPanel {
 
         subtitulo.setLayout(new BorderLayout());
         subtitulo.add(lbl_titulo9, BorderLayout.WEST);
-        
+
         //declaracion de componentes panel 1
         agregarComponentes(panel_uno, lbl_fecha, 0, 0, 1, 1, 0, 0, fill, insets, 10, 10);
         agregarComponentes(panel_uno, txt_fecha, 1, 0, 2, 1, 1, 0, fill, insets, 10, 10);
@@ -723,99 +730,99 @@ public final class ValoracionTerapiaFisica extends JPanel {
         agregarComponentes(panel_dos, txt_hijos, 6, 8, 2, 1, 1, 0, fill, insets, 10, 10);
 
         //declaracion de componentes panel tres
-        fill=GridBagConstraints.HORIZONTAL;
-        agregarComponentes(panel_tres,lbl_3_Antecedentes_Patologicos, 0,0,10,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.BOTH;
-        agregarComponentes(panel_tres,lbl_3_Diabetes, 1,1,1,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.BOTH;
-        agregarComponentes(panel_tres,lbl_3_HTA, 2,1,1,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.BOTH;
-        agregarComponentes(panel_tres,lbl_3_Cancer, 3,1,2,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.BOTH;
-        agregarComponentes(panel_tres,lbl_3_EnfReumat, 5,1,2,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.BOTH;
-        agregarComponentes(panel_tres,lbl_3_EnfReumat, 5,1,2,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.BOTH;
-        agregarComponentes(panel_tres,lbl_3_Cardiopatias, 7,1,2,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.BOTH;
-        agregarComponentes(panel_tres,lbl_3_Cirugias, 9,1,2,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.CENTER;
-        agregarComponentes(panel_tres,cb_3_Diabetes, 1,2,1,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.CENTER;
-        agregarComponentes(panel_tres,cb_3_HTA, 2,2,1,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.CENTER;
-        agregarComponentes(panel_tres,cb_3_Cancer, 3,2,2,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.CENTER;
-        agregarComponentes(panel_tres,cb_3_EnfReumat, 5,2,2,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.CENTER;
-        agregarComponentes(panel_tres,cb_3_Cardiopatias, 7,2,2,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.CENTER;
-        agregarComponentes(panel_tres,cb_3_Cirugias, 9,2,2,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.BOTH;
-        agregarComponentes(panel_tres,lbl_3_Alergias, 1,3,1,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.BOTH;
-        agregarComponentes(panel_tres,lbl_3_Transfuciones, 2,3,1,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.BOTH;
-        agregarComponentes(panel_tres,lbl_3_Accidentes, 3,3,1,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.BOTH;
-        agregarComponentes(panel_tres,lbl_3_Encames, 4,3,1,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.HORIZONTAL;
-        agregarComponentes(panel_tres,lbl_3_Fracturas, 5,3,2,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.HORIZONTAL;
-        agregarComponentes(panel_tres,lbl_3_Signos_Vitales, 7,3,8,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.CENTER;
-        agregarComponentes(panel_tres,cb_3_Alergias, 1,4,1,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.CENTER;
-        agregarComponentes(panel_tres,cb_3_Transfusiones, 2,4,1,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.CENTER;
-        agregarComponentes(panel_tres,cb_3_Accidentes, 3,4,1,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.CENTER;
-        agregarComponentes(panel_tres,cb_3_Fracturas, 5,4,2,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.BOTH;
-        agregarComponentes(panel_tres,lbl_3_TA, 7,4,1,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.HORIZONTAL;
-        agregarComponentes(panel_tres,txt_3_TA, 8,4,1,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.BOTH;
-        agregarComponentes(panel_tres,lbl_3_Temp, 9,4,1,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.HORIZONTAL;
-        agregarComponentes(panel_tres,txt_3_TEMP, 10,4,1,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.BOTH;
-        agregarComponentes(panel_tres,lbl_3_FC, 11,4,1,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.HORIZONTAL;
-        agregarComponentes(panel_tres,txt_3_FC, 12,4,1,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.BOTH;
-        agregarComponentes(panel_tres,lbl_3_FR, 13,4,1,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.HORIZONTAL;
-        agregarComponentes(panel_tres,txt_3_FR, 14,4,1,1,1.0, 1.0, fill, insets, 10, 10);
-        
-        fill=GridBagConstraints.HORIZONTAL;
-        agregarComponentes(panel_cuatro,lbl_4_Exploracion_neurologica, 1,5,14,4,1.0, 1.0, fill, insets, 10, 10);        
-        fill=GridBagConstraints.HORIZONTAL;
-        agregarComponentes(panel_cuatro,lbl_4_Diagnsotico_medico, 1,7,14,1,1.0, 1.0, fill, insets, 10, 10);        
-        fill=GridBagConstraints.BOTH;
-        agregarComponentes(panel_cuatro,lbl_4_Reflejos, 1,8,4,1,1.0, 1.0, fill, insets, 10, 10);        
-        fill=GridBagConstraints.BOTH;
-        agregarComponentes(panel_cuatro,lbl_4_Sensibilidad, 5,8,2,1,1.0, 1.0, fill, insets, 10, 10);        
-        fill=GridBagConstraints.BOTH;
-        agregarComponentes(panel_cuatro,lbl_4_Lenguaje_orentiacion, 7,8,4,1,1.0, 1.0, fill, insets, 10, 10);        
-        fill=GridBagConstraints.BOTH;
-        agregarComponentes(panel_cuatro,lbl_4_Otros, 11,8,4,1,1.0, 1.0, fill, insets, 10, 10);        
-        fill=GridBagConstraints.BOTH;
-        agregarComponentes(panel_cuatro,txt_4_Rfelejos, 1,9,4,1,1.0, 1.0, fill, insets, 10, 10);        
-        fill=GridBagConstraints.BOTH;
-        agregarComponentes(panel_cuatro,txt_4_Sensibilidad, 5,9,2,1,1.0, 1.0, fill, insets, 10, 10);        
-        fill=GridBagConstraints.BOTH;
-        agregarComponentes(panel_cuatro,txt_4_Lenguaje_Orientacion, 7,9,4,1,1.0, 1.0, fill, insets, 10, 10);        
-        fill=GridBagConstraints.BOTH;
-        agregarComponentes(panel_cuatro,txt_4_Otros, 11,9,4,1,1.0, 1.0, fill, insets, 10, 10);       
-        
-        fill=GridBagConstraints.BOTH;
-        agregarComponentes(panel_cuatro,lbl_5_Espamos, 1,10,14,1,1.0, 1.0, fill, insets, 10, 10);        
-        fill=GridBagConstraints.BOTH;
-        agregarComponentes(panel_cuatro,lbl_5_Sitio, 1,11,14,1,1.0, 1.0, fill, insets, 10, 10);
-        fill=GridBagConstraints.BOTH;
-        agregarComponentes(panel_cuatro,txt_5_Sitio, 1,12,14,1,1.0, 1.0, fill, insets, 10, 10);
-        
+        fill = GridBagConstraints.HORIZONTAL;
+        agregarComponentes(panel_tres, lbl_3_Antecedentes_Patologicos, 0, 0, 10, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.BOTH;
+        agregarComponentes(panel_tres, lbl_3_Diabetes, 1, 1, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.BOTH;
+        agregarComponentes(panel_tres, lbl_3_HTA, 2, 1, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.BOTH;
+        agregarComponentes(panel_tres, lbl_3_Cancer, 3, 1, 2, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.BOTH;
+        agregarComponentes(panel_tres, lbl_3_EnfReumat, 5, 1, 2, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.BOTH;
+        agregarComponentes(panel_tres, lbl_3_EnfReumat, 5, 1, 2, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.BOTH;
+        agregarComponentes(panel_tres, lbl_3_Cardiopatias, 7, 1, 2, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.BOTH;
+        agregarComponentes(panel_tres, lbl_3_Cirugias, 9, 1, 2, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.CENTER;
+        agregarComponentes(panel_tres, cb_3_Diabetes, 1, 2, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.CENTER;
+        agregarComponentes(panel_tres, cb_3_HTA, 2, 2, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.CENTER;
+        agregarComponentes(panel_tres, cb_3_Cancer, 3, 2, 2, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.CENTER;
+        agregarComponentes(panel_tres, cb_3_EnfReumat, 5, 2, 2, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.CENTER;
+        agregarComponentes(panel_tres, cb_3_Cardiopatias, 7, 2, 2, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.CENTER;
+        agregarComponentes(panel_tres, cb_3_Cirugias, 9, 2, 2, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.BOTH;
+        agregarComponentes(panel_tres, lbl_3_Alergias, 1, 3, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.BOTH;
+        agregarComponentes(panel_tres, lbl_3_Transfuciones, 2, 3, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.BOTH;
+        agregarComponentes(panel_tres, lbl_3_Accidentes, 3, 3, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.BOTH;
+        agregarComponentes(panel_tres, lbl_3_Encames, 4, 3, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.HORIZONTAL;
+        agregarComponentes(panel_tres, lbl_3_Fracturas, 5, 3, 2, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.HORIZONTAL;
+        agregarComponentes(panel_tres, lbl_3_Signos_Vitales, 7, 3, 8, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.CENTER;
+        agregarComponentes(panel_tres, cb_3_Alergias, 1, 4, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.CENTER;
+        agregarComponentes(panel_tres, cb_3_Transfusiones, 2, 4, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.CENTER;
+        agregarComponentes(panel_tres, cb_3_Accidentes, 3, 4, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.CENTER;
+        agregarComponentes(panel_tres, cb_3_Fracturas, 5, 4, 2, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.BOTH;
+        agregarComponentes(panel_tres, lbl_3_TA, 7, 4, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.HORIZONTAL;
+        agregarComponentes(panel_tres, txt_3_TA, 8, 4, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.BOTH;
+        agregarComponentes(panel_tres, lbl_3_Temp, 9, 4, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.HORIZONTAL;
+        agregarComponentes(panel_tres, txt_3_TEMP, 10, 4, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.BOTH;
+        agregarComponentes(panel_tres, lbl_3_FC, 11, 4, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.HORIZONTAL;
+        agregarComponentes(panel_tres, txt_3_FC, 12, 4, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.BOTH;
+        agregarComponentes(panel_tres, lbl_3_FR, 13, 4, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.HORIZONTAL;
+        agregarComponentes(panel_tres, txt_3_FR, 14, 4, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+
+        fill = GridBagConstraints.HORIZONTAL;
+        agregarComponentes(panel_cuatro, lbl_4_Exploracion_neurologica, 1, 5, 14, 4, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.HORIZONTAL;
+        agregarComponentes(panel_cuatro, lbl_4_Diagnsotico_medico, 1, 7, 14, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.BOTH;
+        agregarComponentes(panel_cuatro, lbl_4_Reflejos, 1, 8, 4, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.BOTH;
+        agregarComponentes(panel_cuatro, lbl_4_Sensibilidad, 5, 8, 2, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.BOTH;
+        agregarComponentes(panel_cuatro, lbl_4_Lenguaje_orentiacion, 7, 8, 4, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.BOTH;
+        agregarComponentes(panel_cuatro, lbl_4_Otros, 11, 8, 4, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.BOTH;
+        agregarComponentes(panel_cuatro, txt_4_Rfelejos, 1, 9, 4, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.BOTH;
+        agregarComponentes(panel_cuatro, txt_4_Sensibilidad, 5, 9, 2, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.BOTH;
+        agregarComponentes(panel_cuatro, txt_4_Lenguaje_Orientacion, 7, 9, 4, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.BOTH;
+        agregarComponentes(panel_cuatro, txt_4_Otros, 11, 9, 4, 1, 1.0, 1.0, fill, insets, 10, 10);
+
+        fill = GridBagConstraints.BOTH;
+        agregarComponentes(panel_cuatro, lbl_5_Espamos, 1, 10, 14, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.BOTH;
+        agregarComponentes(panel_cuatro, lbl_5_Sitio, 1, 11, 14, 1, 1.0, 1.0, fill, insets, 10, 10);
+        fill = GridBagConstraints.BOTH;
+        agregarComponentes(panel_cuatro, txt_5_Sitio, 1, 12, 14, 1, 1.0, 1.0, fill, insets, 10, 10);
+
         //se coloca titulo de panel seis 
         fill = GridBagConstraints.BOTH;
         configurarComponentes(panel_seis, lbl_titulo_seis, 0, 0, 6, 1, 1, 0.5, fill, insets, 10, 10);
@@ -951,35 +958,35 @@ public final class ValoracionTerapiaFisica extends JPanel {
 
         fill = GridBagConstraints.CENTER;
         configurarComponentes(panel_ocho, ck_camillaFinal, 4, 4, 1, 1, 1, 1, fill, insets, 10, 10);
-        
-        fill=GridBagConstraints.BOTH;
-        agregarComponentes(panel_nueve,subtitulo, 0,0,10,1,1.0, 1.0, fill, insets, 10, 10);
-        agregarComponentes(panel_nueve,lbl_dolorRPID, 0,1,1,1,1.0, 1.0, fill, insets, 10, 10);      
-        agregarComponentes(panel_nueve,txt_campoDolor, 2,1,9,1,1.0, 1.0, fill, insets, 10, 10);        
-        agregarComponentes(panel_nueve,p_9_espacio1, 0,2,9,1,1.0, 1.0, fill, insets, 10, 10);
-        agregarComponentes(panel_nueve,p_9_espacio2, 1,2,1,1,1.0, 1.0, fill, insets, 10, 10);
-        agregarComponentes(panel_nueve,p_9_espacio3, 2,2,1,1,1.0, 1.0, fill, insets, 10, 10);
-        agregarComponentes(panel_nueve,p_9_espacio4, 3,2,1,1,1.0, 1.0, fill, insets, 10, 10);
-        agregarComponentes(panel_nueve,p_9_espacio5, 4,2,1,1,1.0, 1.0, fill, insets, 10, 10);
-        agregarComponentes(panel_nueve,p_9_espacio6, 5,2,1,1,1.0, 1.0, fill, insets, 10, 10);
-        agregarComponentes(panel_nueve,p_9_espacio7, 6,2,1,1,1.0, 1.0, fill, insets, 10, 10);
-        agregarComponentes(panel_nueve,p_9_espacio8, 7,2,1,1,1.0, 1.0, fill, insets, 10, 10);
-        agregarComponentes(panel_nueve,p_9_espacio9, 8,2,1,1,1.0, 1.0, fill, insets, 10, 10);
-        agregarComponentes(panel_nueve,p_9_espacio10, 9,2,1,1,1.0, 1.0, fill, insets, 10, 10);
-        agregarComponentes(panel_nueve,lbl_eva, 0,3,6,1,1.0, 1.0, fill, insets, 10, 10);
-        agregarComponentes(panel_nueve,p_9_espacio11, 0,4,10,1,1.0, 1.0, fill, insets, 10, 10);
-        agregarComponentes(panel_nueve,lbl_noV, 0,5,1,1,1.0, 1.0, fill, insets, 10, 10);
-        agregarComponentes(panel_nueve,cb_escala, 1,5,9,1,1.0, 1.0, fill, insets, 10, 10);
-        agregarComponentes(panel_nueve,p_9_espacio12, 0,6,10,1,1.0, 1.0, fill, insets, 10, 10);
-        agregarComponentes(panel_nueve,lbl_wB, 0,7,10,1,1.0, 1.0, fill, insets, 10, 10);
-        agregarComponentes(panel_nueve,p_escalaWB, 0,8,10,1,1.0, 1.0, fill, insets, 10, 10);
-        agregarComponentes(panel_nueve,p_nueve_final, 0,9,10,1,1.0, 1.0, fill, insets, 10, 10);
-        agregarComponentes(panel_nueve,p_nueve_final, 0,9,10,1,1.0, 1.0, fill, insets, 10, 10);
-        
-        agregarComponentes(p_nueve_final,lbl_9_inicial, 0,0,1,1,1.0, 1.0, fill, insets, 10, 10);
-        agregarComponentes(p_nueve_final,cb_inicial, 1,0,1,1,1.0, 1.0, fill, insets, 10, 10);
-        agregarComponentes(p_nueve_final,lbl_9_final, 2,0,1,1,1.0, 1.0, fill, insets, 10, 10);
-        agregarComponentes(p_nueve_final,cb_final, 3,0,1,1,1.0, 1.0, fill, insets, 10, 10);
+
+        fill = GridBagConstraints.BOTH;
+        agregarComponentes(panel_nueve, subtitulo, 0, 0, 10, 1, 1.0, 1.0, fill, insets, 10, 10);
+        agregarComponentes(panel_nueve, lbl_dolorRPID, 0, 1, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        agregarComponentes(panel_nueve, txt_campoDolor, 2, 1, 9, 1, 1.0, 1.0, fill, insets, 10, 10);
+        agregarComponentes(panel_nueve, p_9_espacio1, 0, 2, 9, 1, 1.0, 1.0, fill, insets, 10, 10);
+        agregarComponentes(panel_nueve, p_9_espacio2, 1, 2, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        agregarComponentes(panel_nueve, p_9_espacio3, 2, 2, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        agregarComponentes(panel_nueve, p_9_espacio4, 3, 2, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        agregarComponentes(panel_nueve, p_9_espacio5, 4, 2, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        agregarComponentes(panel_nueve, p_9_espacio6, 5, 2, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        agregarComponentes(panel_nueve, p_9_espacio7, 6, 2, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        agregarComponentes(panel_nueve, p_9_espacio8, 7, 2, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        agregarComponentes(panel_nueve, p_9_espacio9, 8, 2, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        agregarComponentes(panel_nueve, p_9_espacio10, 9, 2, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        agregarComponentes(panel_nueve, lbl_eva, 0, 3, 6, 1, 1.0, 1.0, fill, insets, 10, 10);
+        agregarComponentes(panel_nueve, p_9_espacio11, 0, 4, 10, 1, 1.0, 1.0, fill, insets, 10, 10);
+        agregarComponentes(panel_nueve, lbl_noV, 0, 5, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        agregarComponentes(panel_nueve, cb_escala, 1, 5, 9, 1, 1.0, 1.0, fill, insets, 10, 10);
+        agregarComponentes(panel_nueve, p_9_espacio12, 0, 6, 10, 1, 1.0, 1.0, fill, insets, 10, 10);
+        agregarComponentes(panel_nueve, lbl_wB, 0, 7, 10, 1, 1.0, 1.0, fill, insets, 10, 10);
+        agregarComponentes(panel_nueve, p_escalaWB, 0, 8, 10, 1, 1.0, 1.0, fill, insets, 10, 10);
+        agregarComponentes(panel_nueve, p_nueve_final, 0, 9, 10, 1, 1.0, 1.0, fill, insets, 10, 10);
+        agregarComponentes(panel_nueve, p_nueve_final, 0, 9, 10, 1, 1.0, 1.0, fill, insets, 10, 10);
+
+        agregarComponentes(p_nueve_final, lbl_9_inicial, 0, 0, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        agregarComponentes(p_nueve_final, cb_inicial, 1, 0, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        agregarComponentes(p_nueve_final, lbl_9_final, 2, 0, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
+        agregarComponentes(p_nueve_final, cb_final, 3, 0, 1, 1, 1.0, 1.0, fill, insets, 10, 10);
 
         panel_Botones.add(btn_limpiar);
         panel_Botones.add(btn_guardar);
@@ -1052,17 +1059,17 @@ public final class ValoracionTerapiaFisica extends JPanel {
         gbcPanel.gridheight = 1;
 
         this.add(panel_nueve, gbcPanel);
-        
+
         gbcPanel.gridx = 0;
         gbcPanel.gridy = 9;
         gbcPanel.gridwidth = 1;
         gbcPanel.gridheight = 1;
 
         this.add(panel_Botones, gbcPanel);
-        
-        btn_limpiar.addMouseListener(new WrapperMouse(){
+
+        btn_limpiar.addMouseListener(new WrapperMouse() {
             @Override
-            public void mouseClicked(MouseEvent e){
+            public void mouseClicked(MouseEvent e) {
                 //panel 1
                 txt_fecha.setText("");
                 txt_nombre.setText("");
@@ -1146,92 +1153,127 @@ public final class ValoracionTerapiaFisica extends JPanel {
                 cb_inicial.setSelectedIndex(0);
             }
         });
-        btn_guardar.addMouseListener(new WrapperMouse(){
+
+        btn_guardar.addMouseListener(new WrapperMouse() {
             @Override
-            public void mouseClicked(MouseEvent e){
-                //panel 1
-                String fecha = txt_fecha.getText();
+            public void mouseClicked(MouseEvent e) {
                 String nombre = txt_nombre.getText();
-                String matricula = txt_matricula.getText();
-                String sexo = txt_sexo.getText();
-                String edad = txt_edad.getText();
-                String sala = txt_sala.getText();
-                String telefono = txt_telefono.getText();
+                String matriculaStr = txt_matricula.getText();
+                String sexoStr = txt_sexo.getText();
+                String edadStr = txt_edad.getText();
+                String telefonoStr = txt_telefono.getText();
+                String edoCivilStr = txt_estadoCivil.getText();
                 String religion = txt_religion.getText();
                 String ocupacion = txt_ocupacion.getText();
-                String edoCivil = txt_estadoCivil.getText();
-                String medicoTratante = txt_medicoTratante.getText();
-                //panel 2
-                String origen = txt_origen.getText();
-                String radica = txt_radica.getText();
-                String escolaridad = txt_escolaridad.getText();
-                String svsMunicipales = txt_svsMunicipales.getText();
-                String habitacion = txt_habitacion.getText();
-                boolean tabaquismo = chk_tabaquismo.isSelected();
-                boolean etilismo = chk_etilismo.isSelected();
-                String higienePnal = txt_higienePnal.getText();
-                String alimentacion = txt_alimentacion.getText();
-                String pasatiempo = txt_pasatiempo.getText();
-                String otros = txt_otros.getText();
-                String dominio = txt_dominio.getText();
-                String hijos = txt_hijos.getText();
-                //panel 3
-                boolean diabetes = cb_3_Diabetes.isSelected();
-                boolean HTA = cb_3_HTA.isSelected();
-                boolean cancer = cb_3_Cancer.isSelected();
-                boolean enfReumat = cb_3_EnfReumat.isSelected();
-                boolean cardiopatias =  cb_3_Cardiopatias.isSelected();
-                boolean cirugias = cb_3_Cirugias.isSelected();
-                boolean alergias = cb_3_Alergias.isSelected();
-                boolean transfusiones = cb_3_Transfusiones.isSelected();
-                boolean accidentes = cb_3_Accidentes.isSelected();
-                boolean encames = cb_3_Encames.isSelected();
-                boolean fracturas = cb_3_Fracturas.isSelected();
-                String TA = txt_3_TA.getText();
-                String TEMP = txt_3_TEMP.getText();
-                String FC = txt_3_FC.getText();
-                String FR = txt_3_FR.getText();
-                //panel 4
-                String Reflejos = txt_4_Rfelejos.getText();
-                String Sensibilidad = txt_4_Sensibilidad.getText();
-                String LenguajeOrientacion = txt_4_Lenguaje_Orientacion.getText();
-                String otros_p_4 = txt_4_Otros.getText();
+                String fechaCadena = txt_fecha.getText();
 
-                //panel 5
-                String sitio_p_5 = txt_5_Sitio.getText();
-                //panel 6
-                String sitio_p6=txt_sitio.getText();
-                boolean queloide = ck_queloide.isSelected();
-                boolean retractil = ck_retractil.isSelected();
-                boolean abierta = ck_abierta.isSelected();
-                boolean adherencias = ck_adherencias.isSelected();
-                boolean hipertroficca = ck_hipertrofica.isSelected();
-                //panel 7
-                boolean libre = ck_libre.isSelected();
-                boolean claudicante = ck_claudicante.isSelected();
-                boolean ayuda=ck_ayuda.isSelected();
-                boolean espastica = ck_espastica.isSelected();
-                boolean ataxica = ck_ataxica.isSelected();
-                String otras_p_7 = txt_otras.getText();
-                //panel 8
-                boolean independienteInicial = ck_independiente.isSelected();
-                boolean sillaDeRuedasInicial = ck_sillaDeRuedas.isSelected();
-                boolean ayudasInicial = ck_ayudas.isSelected();
-                boolean camillaInicial = ck_camilla.isSelected();
-                boolean independienteFinal = ck_independienteFinal.isSelected();
-                boolean sillaDeRuedasFinal = ck_sillaDeRuedasFinal.isSelected();
-                boolean ayudasFianl = ck_ayudasFinal.isSelected();
-                boolean camillaFinal = ck_camillaFinal.isSelected();
-                //panel 9
-                String campoDolor = txt_campoDolor.getText();
-                cb_escala.setSelectedIndex(0);
-                cb_final.setSelectedIndex(0);
-                cb_inicial.setSelectedIndex(0);
+                try {
+                    int matricula = Integer.parseInt(matriculaStr);
+                    char sexo = sexoStr.charAt(0);
+                    int edad = Integer.parseInt(edadStr);
+                    int telefono = Integer.parseInt(telefonoStr);
+                    int edoCivil = Integer.parseInt(edoCivilStr);
+
+                    String[] fechaSeparada = fechaCadena.split("/");
+                    if (fechaSeparada.length == 3) {
+                        int dia = Integer.parseInt(fechaSeparada[0]);
+                        int mes = Integer.parseInt(fechaSeparada[1]);
+                        int anio = Integer.parseInt(fechaSeparada[2]);
+
+                        // Crea una instancia de Fecha
+                        Fecha fecha = new Fecha(dia, mes, anio);
+
+                        Paciente pac = new Paciente(fecha, nombre, matricula, sexo, edad, telefono, edoCivil, religion, ocupacion);
+                        repoPac.agregarPaciente(pac);
+
+                        txt_nombre.setText("");
+                        txt_matricula.setText("");
+                        txt_sexo.setText("");
+                        txt_edad.setText("");
+                        txt_telefono.setText("");
+                        txt_estadoCivil.setText("");
+                        txt_religion.setText("");
+                        txt_ocupacion.setText("");
+                        txt_fecha.setText("");
+
+                        System.out.println(" estoy hartop");
+                        
+                    } else {
+                    }
+
+                } catch (DiaInvalido | MesInvalido ex) {
+                }
             }
+
+            String medicoTratante = txt_medicoTratante.getText();
+            //panel 2
+            String origen = txt_origen.getText();
+            String radica = txt_radica.getText();
+            String escolaridad = txt_escolaridad.getText();
+            String svsMunicipales = txt_svsMunicipales.getText();
+            String habitacion = txt_habitacion.getText();
+            boolean tabaquismo = chk_tabaquismo.isSelected();
+            boolean etilismo = chk_etilismo.isSelected();
+            String higienePnal = txt_higienePnal.getText();
+            String alimentacion = txt_alimentacion.getText();
+            String pasatiempo = txt_pasatiempo.getText();
+            String otros = txt_otros.getText();
+            String dominio = txt_dominio.getText();
+            String hijos = txt_hijos.getText();
+            //panel 3
+            boolean diabetes = cb_3_Diabetes.isSelected();
+            boolean HTA = cb_3_HTA.isSelected();
+            boolean cancer = cb_3_Cancer.isSelected();
+            boolean enfReumat = cb_3_EnfReumat.isSelected();
+            boolean cardiopatias = cb_3_Cardiopatias.isSelected();
+            boolean cirugias = cb_3_Cirugias.isSelected();
+            boolean alergias = cb_3_Alergias.isSelected();
+            boolean transfusiones = cb_3_Transfusiones.isSelected();
+            boolean accidentes = cb_3_Accidentes.isSelected();
+            boolean encames = cb_3_Encames.isSelected();
+            boolean fracturas = cb_3_Fracturas.isSelected();
+            String TA = txt_3_TA.getText();
+            String TEMP = txt_3_TEMP.getText();
+            String FC = txt_3_FC.getText();
+            String FR = txt_3_FR.getText();
+            //panel 4
+            String Reflejos = txt_4_Rfelejos.getText();
+            String Sensibilidad = txt_4_Sensibilidad.getText();
+            String LenguajeOrientacion = txt_4_Lenguaje_Orientacion.getText();
+            String otros_p_4 = txt_4_Otros.getText();
+
+            //panel 5
+            String sitio_p_5 = txt_5_Sitio.getText();
+            //panel 6
+            String sitio_p6 = txt_sitio.getText();
+            boolean queloide = ck_queloide.isSelected();
+            boolean retractil = ck_retractil.isSelected();
+            boolean abierta = ck_abierta.isSelected();
+            boolean adherencias = ck_adherencias.isSelected();
+            boolean hipertroficca = ck_hipertrofica.isSelected();
+            //panel 7
+            boolean libre = ck_libre.isSelected();
+            boolean claudicante = ck_claudicante.isSelected();
+            boolean ayuda = ck_ayuda.isSelected();
+            boolean espastica = ck_espastica.isSelected();
+            boolean ataxica = ck_ataxica.isSelected();
+            String otras_p_7 = txt_otras.getText();
+            //panel 8
+            boolean independienteInicial = ck_independiente.isSelected();
+            boolean sillaDeRuedasInicial = ck_sillaDeRuedas.isSelected();
+            boolean ayudasInicial = ck_ayudas.isSelected();
+            boolean camillaInicial = ck_camilla.isSelected();
+            boolean independienteFinal = ck_independienteFinal.isSelected();
+            boolean sillaDeRuedasFinal = ck_sillaDeRuedasFinal.isSelected();
+            boolean ayudasFianl = ck_ayudasFinal.isSelected();
+            boolean camillaFinal = ck_camillaFinal.isSelected();
+            //panel 9
+            String campoDolor = txt_campoDolor.getText();
+
         });
-        
+
     }
-    
+
     //Método para acomodo de gridBag
     private void agregarComponentes(JPanel panel, Component componente, int columna, int fila, int ancho, int alto, double pesoX, double pesoY, int fill, Insets insets, int ipadx, int ipady) {
         GridBagConstraints gbc = new GridBagConstraints();
@@ -1247,7 +1289,6 @@ public final class ValoracionTerapiaFisica extends JPanel {
         gbc.ipady = ipady;
         panel.add(componente, gbc);
     }
-
 
     private void configurarComponentes(JComponent contenedor, JComponent componente,
             int gridX, int gridY,
@@ -1271,54 +1312,54 @@ public final class ValoracionTerapiaFisica extends JPanel {
         contenedor.add(componente, constraints);
     }
 
-    private boolean permitida(int tipo, char c){
-        if(tipo == 1 && letra(c)){
+    private boolean permitida(int tipo, char c) {
+        if (tipo == 1 && letra(c)) {
             return true;
-        }else if(tipo == 2 && digito(c)){
+        } else if (tipo == 2 && digito(c)) {
             return true;
-        }else if(tipo == 4 && caracterEspecial(c)){
+        } else if (tipo == 4 && caracterEspecial(c)) {
             return true;
-        }else if(tipo == 3 || digito(c)){
+        } else if (tipo == 3 || digito(c)) {
             return true;
-        }else if(tipo == 5 || caracterEspecial(c)){
+        } else if (tipo == 5 || caracterEspecial(c)) {
             return true;
-        }else if(tipo == 6 && digito(c) || caracterEspecial(c)){
+        } else if (tipo == 6 && digito(c) || caracterEspecial(c)) {
             return true;
         }
         return false;
     }
-    
-    private void mayusculas(KeyEvent evt){
+
+    private void mayusculas(KeyEvent evt) {
         char letra = evt.getKeyChar();
-        if(letra(letra)){
-            if(Character.isLowerCase(letra)){
-                String mayuscula = (""+ letra).toUpperCase();
-                letra= mayuscula.charAt(0);
+        if (letra(letra)) {
+            if (Character.isLowerCase(letra)) {
+                String mayuscula = ("" + letra).toUpperCase();
+                letra = mayuscula.charAt(0);
                 evt.setKeyChar(letra);
             }
         }
     }
-    
-    private boolean digito(char caracter){
-        if(Character.isSpaceChar(caracter) || Character.isLetter(caracter)){
+
+    private boolean digito(char caracter) {
+        if (Character.isSpaceChar(caracter) || Character.isLetter(caracter)) {
             return true;
         }
         return false;
     }
-    
-    private boolean letra (char caracter){
-        if(Character.isSpaceChar(caracter) || Character.isLetter(caracter)){
+
+    private boolean letra(char caracter) {
+        if (Character.isSpaceChar(caracter) || Character.isLetter(caracter)) {
             return true;
         }
         return false;
     }
 
     private boolean caracterEspecial(char caracter) {
-        char[] caracteres = {'|','°','¬','!','"','$','#','%','&',
-        '/','(',')','=','?','\'','¡','¿','´','*','~','+','[',']',
-        '{','}','`',';',',',':','.','-','_','>','<','@'};
-        for(int i = 0; i<caracteres.length; i++){
-            if(caracter == caracteres[i]){
+        char[] caracteres = {'|', '°', '¬', '!', '"', '$', '#', '%', '&',
+            '/', '(', ')', '=', '?', '\'', '¡', '¿', '´', '*', '~', '+', '[', ']',
+            '{', '}', '`', ';', ',', ':', '.', '-', '_', '>', '<', '@'};
+        for (int i = 0; i < caracteres.length; i++) {
+            if (caracter == caracteres[i]) {
                 return true;
             }
         }
@@ -1326,7 +1367,7 @@ public final class ValoracionTerapiaFisica extends JPanel {
     }
 
     Coordinador coordinador;
-    
+
     public void setCoordinador(Coordinador coordinador) {
         this.coordinador = coordinador;
     }

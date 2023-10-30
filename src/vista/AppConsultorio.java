@@ -26,7 +26,6 @@ public class AppConsultorio {
         
         
         RepositorioPacientes.CargaDatosPaciente();
-        RepositorioPacientes.getArregloPacientes();
     }
     
 }

@@ -87,17 +87,10 @@ public class RepositorioPacientes {
     }
     
     
-    public static void CargaDatosPaciente() throws DiaInvalido, MesInvalido{
-        Fecha fechanac= new Fecha(10,10,2002);
-        repositorioPacientes.add(new Paciente(fechanac,"Enrique",01,'H',25,61410,01,"Catolico","Estudiante"));
-        repositorioPacientes.add(new Paciente(fechanac,"Paola",02,'M',70,614120,0,"Cristiano","Estudiante"));
-        repositorioPacientes.add(new Paciente(fechanac,"Manuel",03,'H',30,614120,1,"Catolico","Trabajador"));
-        repositorioPacientes.add(new Paciente(fechanac,"Jose",04,'H',24,614120,1,"Catolico","Estudiante"));
-        repositorioPacientes.add(new Paciente(fechanac,"Andres",05,'H',64,614120,0,"Catolico","Ninguna"));
-        repositorioPacientes.add(new Paciente(fechanac,"Andrea",06,'M',42,614120,1,"Catolico","Dentista"));
-        repositorioPacientes.add(new Paciente(fechanac,"Amalia",07,'M',24,614120,1,"Catolico","Bombombero"));
-        repositorioPacientes.add(new Paciente(fechanac,"Jesus",9,'H',26,614120,0,"Catolico","Deportista"));
-        repositorioPacientes.add(new Paciente(fechanac,"Antonio",10,'H',54,614120,0,"Catolico","Cerrajero"));
+    public static void CargaDatosPaciente( ) throws DiaInvalido, MesInvalido{
+        
+        
+        
       
     }
 }

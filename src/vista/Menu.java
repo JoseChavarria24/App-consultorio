@@ -54,6 +54,7 @@ public class Menu extends JFrame {
             public void adjustmentValueChanged(AdjustmentEvent e) {
                 repaint();
             }
+        
         });
         
 
