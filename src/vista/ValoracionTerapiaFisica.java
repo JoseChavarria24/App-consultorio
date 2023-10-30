@@ -1184,6 +1184,7 @@ public final class ValoracionTerapiaFisica extends JPanel {
                         Fecha fecha = new Fecha(dia, mes, anio);
 
                         Paciente pac = new Paciente(fecha, nombre, matricula, sexo, edad, telefono, edoCivil, religion, ocupacion);
+                        RepositorioPacientes.CargaDatosPaciente();
                         repoPac.agregarPaciente(pac);
 
                         txt_nombre.setText("");

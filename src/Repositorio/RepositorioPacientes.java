@@ -88,9 +88,16 @@ public class RepositorioPacientes {
     
     
     public static void CargaDatosPaciente( ) throws DiaInvalido, MesInvalido{
+        Fecha fechia= new Fecha(13,10,2002);
         
-        
-        
+     
+        repositorioPacientes.add(new Paciente(fechia,"Enrique Rodriguez Guillen",01,'H',21,61412036,1,"Buda","Programador Senior"));
+        repositorioPacientes.add(new Paciente(fechia,"Jose Santos Chavarria Valdez",01,'H',21,61412036,1,"Buda","Programador Senior"));
+        repositorioPacientes.add(new Paciente(fechia,"Martín Gómez ",01,'H',21,61412036,1,"Buda","Programador Senior"));
+        repositorioPacientes.add(new Paciente(fechia,"Memo ochoa",01,'H',21,61412036,1,"Buda","Programador Senior"));
+        repositorioPacientes.add(new Paciente(fechia,"Chocó perez",01,'H',21,61412036,1,"Buda","Programador Senior"));
+        repositorioPacientes.add(new Paciente(fechia,"Jhon Cena",01,'H',21,61412036,1,"Buda","Programador Senior"));
+
       
     }
 }

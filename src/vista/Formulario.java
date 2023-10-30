@@ -424,7 +424,7 @@ public class Formulario extends JPanel{
         
     }
 
-    private boolean permitida(int tipo, char c){
+   private boolean permitida(int tipo, char c){
         if(tipo == 1 && letra(c)){
             return true;
         }else if(tipo == 2 && digito(c)){

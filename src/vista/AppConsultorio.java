@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package vista;
 
 
@@ -11,9 +7,6 @@ import modelo.excepciones.MesInvalido;
 import vista.*;
 import vista.Menu;
 
-/**
- *José Santos Chavarría Valdez     
- */
 public class AppConsultorio {
     
     public AppConsultorio(){
@@ -24,8 +17,8 @@ public class AppConsultorio {
         Menu app = new Menu();
         app.setVisible(true);
         
-        
         RepositorioPacientes.CargaDatosPaciente();
-    }
+        
+           }
     
 }

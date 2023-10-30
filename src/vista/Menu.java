@@ -1,16 +1,21 @@
 package vista;
 
+import Repositorio.RepositorioPacientes;
 import java.awt.*;
 import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 import vista.TablaPacientes;
 import vista.ValoracionTerapiaFisica;
 import vista.PanelCitas;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
+import modelo.excepciones.DiaInvalido;
+import modelo.excepciones.MesInvalido;
 import utilerias.WrapperMouse;
 
 /**
@@ -170,6 +175,7 @@ public class Menu extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 mostrarPanel(new TablaPacientes());
+              
             }
             @Override
             public void mouseEntered(MouseEvent e) {

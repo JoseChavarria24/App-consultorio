@@ -1,5 +1,5 @@
 
-package Repositorio;
+package modelo.vc;
 
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -7,6 +7,7 @@ import modelo.excepciones.DiaInvalido;
 import modelo.excepciones.MesInvalido;
 import modelo.vo.Fecha;
 import modelo.vo.Paciente;
+import Repositorio.RepositorioPacientes;
 import Repositorio.RepositorioPacientes;
 
 

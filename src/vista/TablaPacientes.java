@@ -7,7 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
-import Repositorio.ModeloPacientesTabla;
+import modelo.vc.ModeloPacientesTabla;
     
 public class TablaPacientes extends JPanel{
 

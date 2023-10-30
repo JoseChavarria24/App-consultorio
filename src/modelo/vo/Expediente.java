@@ -1,13 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package modelo.vo;
 
-/**
- *
- * @author alejb
- */
+
 public class Expediente {
 
     //Antecedentes no patologicos
@@ -29,7 +23,9 @@ public class Expediente {
     private String otrosAntecedentesNoPat;
     private String dominio;
     private String hijos;
+    
     //Antecedentes patologicos y heredofamiliares
+    
     private boolean diabetes;
     private boolean hta;
     private boolean cancer;
