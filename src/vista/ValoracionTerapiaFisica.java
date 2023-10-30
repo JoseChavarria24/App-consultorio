@@ -3,7 +3,7 @@ package vista;
 import controlador.Coordinador;
 import javax.swing.*;
 import java.awt.*;
-import utilerias.MyTextField;
+import Componentes.MyTextField;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import modelo.excepciones.DiaInvalido;

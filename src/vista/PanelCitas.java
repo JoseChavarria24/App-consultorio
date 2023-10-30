@@ -4,7 +4,7 @@
  */
 package vista;
 
-import utilerias.MyTextField;
+import Componentes.MyTextField;
 
 /**
  *
