@@ -1,4 +1,4 @@
-package utilerias;
+package Componentes;
 
 import java.awt.Color;
 import java.awt.event.FocusEvent;
