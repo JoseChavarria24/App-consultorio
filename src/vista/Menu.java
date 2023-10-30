@@ -81,7 +81,7 @@ public class Menu extends JFrame {
         lbl_titulo = new JLabel(" CONSULTORIO ");
         lbl_oeste0 = new JLabel(" REGISTRO ");
         lbl_oeste1 = new JLabel(" PACIENTE ");
-        lbl_oeste2 = new JLabel("--");
+        lbl_oeste2 = new JLabel(" CITAS ");
         lbl_oeste3 = new JLabel("--");
         lbl_oeste4 = new JLabel(" SALIR ");
         lbl_logo = new JLabel(new ImageIcon("Logo.png"));
@@ -154,11 +154,13 @@ public class Menu extends JFrame {
             }
             @Override
             public void mouseEntered(MouseEvent e) {
+                setCursor(new Cursor(Cursor.HAND_CURSOR));
                 panel_oeste0.setBackground(new Color(255, 193, 7));
                 lbl_oeste0.setForeground(Color.black);
             }
             @Override
             public void mouseExited(MouseEvent e) {
+                setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
                 panel_oeste0.setBackground(new Color(0, 151, 167));
                 lbl_oeste0.setForeground(Color.white);
             }
@@ -171,12 +173,14 @@ public class Menu extends JFrame {
             }
             @Override
             public void mouseEntered(MouseEvent e) {
+                setCursor(new Cursor(Cursor.HAND_CURSOR));
                 panel_oeste1.setBackground(new Color(255, 193, 7));
                 lbl_oeste1.setForeground(Color.black);
 
             }
             @Override
             public void mouseExited(MouseEvent e) {
+                setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
                 panel_oeste1.setBackground(new Color(0, 151, 167));
                 lbl_oeste1.setForeground(Color.white);
             }
@@ -189,11 +193,13 @@ public class Menu extends JFrame {
             }
             @Override
             public void mouseEntered(MouseEvent e) {
+                setCursor(new Cursor(Cursor.HAND_CURSOR));
                 panel_oeste2.setBackground(new Color(255, 193, 7));
                 lbl_oeste2.setForeground(Color.black);
             }
             @Override
             public void mouseExited(MouseEvent e) {
+                setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
                 panel_oeste2.setBackground(new Color(0, 151, 167));
                 lbl_oeste2.setForeground(Color.white);
             }
@@ -206,11 +212,13 @@ public class Menu extends JFrame {
             }
             @Override
             public void mouseEntered(MouseEvent e) {
+                setCursor(new Cursor(Cursor.HAND_CURSOR));
                 panel_oeste3.setBackground(new Color(255, 193, 7));
                 lbl_oeste3.setForeground(Color.black);
             }
             @Override
             public void mouseExited(MouseEvent e) {
+                setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
                 panel_oeste3.setBackground(new Color(0, 151, 167));
                 lbl_oeste3.setForeground(Color.white);
             }
@@ -223,11 +231,13 @@ public class Menu extends JFrame {
             }
             @Override
             public void mouseEntered(MouseEvent e) {
+                setCursor(new Cursor(Cursor.HAND_CURSOR));
                 panel_oeste4.setBackground(new Color(255, 193, 7));
                 lbl_oeste4.setForeground(Color.black);
             }
             @Override
             public void mouseExited(MouseEvent e) {
+                setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
                 panel_oeste4.setBackground(new Color(0, 151, 167));
                 lbl_oeste4.setForeground(Color.white);
             }
