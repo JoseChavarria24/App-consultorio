@@ -80,7 +80,7 @@ public class Menu extends JFrame {
         lbl_titulo = new JLabel(" CONSULTORIO ");
         lbl_oeste0 = new JLabel(" REGISTRO ");
         lbl_oeste1 = new JLabel(" PACIENTE ");
-        lbl_oeste2 = new JLabel("--");
+        lbl_oeste2 = new JLabel(" CITAS ");
         lbl_oeste3 = new JLabel("--");
         lbl_oeste4 = new JLabel(" SALIR ");
         lbl_logo = new JLabel(new ImageIcon("Logo.png"));
