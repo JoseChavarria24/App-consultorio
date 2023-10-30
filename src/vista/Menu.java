@@ -9,7 +9,7 @@ import java.awt.event.MouseListener;
 import javax.swing.*;
 import vista.TablaPacientes;
 import vista.ValoracionTerapiaFisica;
-import vista.ValoracionTerapiaFisica;
+import vista.PanelCitas;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 import utilerias.WrapperMouse;
 
@@ -184,7 +184,7 @@ public class Menu extends JFrame {
         panel_oeste2.addMouseListener(new WrapperMouse() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                mostrarPanel(new TablaPacientes());
+                mostrarPanel(new PanelCitas());
             }
             @Override
             public void mouseEntered(MouseEvent e) {
