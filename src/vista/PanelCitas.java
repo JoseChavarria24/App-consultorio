@@ -6,6 +6,7 @@ package vista;
 
 import Componentes.MyTextField;
 
+
 /**
  *
  * @author alejb
@@ -28,18 +29,18 @@ public class PanelCitas extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbl_busquedaNombre = new MyTextField();
-        javax.swing.JTextField txf_busquedaNombre = new javax.swing.JTextField();
-        lbl_dia = new MyTextField();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel1 = new MyTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel2 = new MyTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel3 = new MyTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jLabel4 = new MyTextField();
+        lbl_busquedaNombre = new javax.swing.JLabel();
+        MyTextField txf_busquedaNombre = new MyTextField();
+        lbl_dia = new javax.swing.JLabel();
+        jTextField1 = new MyTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField2 = new MyTextField();
+        jTextField3 = new MyTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField4 = new MyTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField5 = new MyTextField();
+        jLabel4 = new javax.swing.JLabel();
 
         lbl_busquedaNombre.setText("Nombre: ");
 
@@ -172,16 +173,16 @@ public class PanelCitas extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private MyTextField jLabel1;
-    private MyTextField jLabel2;
-    private MyTextField jLabel3;
-    private MyTextField jLabel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private MyTextField lbl_busquedaNombre;
-    private MyTextField lbl_dia;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private MyTextField jTextField1;
+    private MyTextField jTextField2;
+    private MyTextField jTextField3;
+    private MyTextField jTextField4;
+    private MyTextField jTextField5;
+    private javax.swing.JLabel lbl_busquedaNombre;
+    private javax.swing.JLabel lbl_dia;
     // End of variables declaration//GEN-END:variables
 }
