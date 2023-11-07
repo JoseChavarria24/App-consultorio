@@ -185,11 +185,15 @@ public final class ValoracionTerapiaFisica extends JPanel {
 
     JScrollPane sb_panel;
 
+    int Escala[];
+    
     public ValoracionTerapiaFisica() {
         agregarComponentes();
     }
 
     public void agregarComponentes() {
+        Escala = new int[11];
+        int[] Escala = {0,1,2,3,4,5,6,7,8,9,10};
         Insets insets = new Insets(10, 10, 10, 10);
         int fill = GridBagConstraints.HORIZONTAL;
         Font Fuente_lbl = new Font("Arial", Font.BOLD, 15);
@@ -635,8 +639,42 @@ public final class ValoracionTerapiaFisica extends JPanel {
         ck_camillaFinal.setBackground(color_fondo);
 
         cb_escala = new JComboBox();
+        cb_escala.addItem(Escala[0]);
+        cb_escala.addItem(Escala[1]);
+        cb_escala.addItem(Escala[2]);
+        cb_escala.addItem(Escala[3]);
+        cb_escala.addItem(Escala[4]);
+        cb_escala.addItem(Escala[5]);
+        cb_escala.addItem(Escala[6]);
+        cb_escala.addItem(Escala[7]);
+        cb_escala.addItem(Escala[8]);
+        cb_escala.addItem(Escala[9]);
+        cb_escala.addItem(Escala[10]);
         cb_final = new JComboBox();
+        cb_final.addItem(Escala[0]);
+        cb_final.addItem(Escala[1]);
+        cb_final.addItem(Escala[2]);
+        cb_final.addItem(Escala[3]);
+        cb_final.addItem(Escala[4]);
+        cb_final.addItem(Escala[5]);
+        cb_final.addItem(Escala[6]);
+        cb_final.addItem(Escala[7]);
+        cb_final.addItem(Escala[8]);
+        cb_final.addItem(Escala[9]);
+        cb_final.addItem(Escala[10]);
         cb_inicial = new JComboBox();
+        cb_inicial.addItem(Escala[0]);
+        cb_inicial.addItem(Escala[1]);
+        cb_inicial.addItem(Escala[2]);
+        cb_inicial.addItem(Escala[3]);
+        cb_inicial.addItem(Escala[4]);
+        cb_inicial.addItem(Escala[5]);
+        cb_inicial.addItem(Escala[6]);
+        cb_inicial.addItem(Escala[7]);
+        cb_inicial.addItem(Escala[8]);
+        cb_inicial.addItem(Escala[9]);
+        cb_inicial.addItem(Escala[10]);
+        
 
         lbl_titulo9 = new JLabel("Dolor");
         lbl_dolorRPID = new JLabel("Dolor: región principal y la irradiación del dolor:");
