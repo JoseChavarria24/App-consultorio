@@ -14,6 +14,7 @@ import utilerias.WrapperMouse;
 import Repositorio.RepositorioPacientes;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import utilerias.WrapperKey;
 
 public final class ValoracionTerapiaFisica extends JPanel {
 
@@ -1067,6 +1068,192 @@ public final class ValoracionTerapiaFisica extends JPanel {
 
         this.add(panel_Botones, gbcPanel);
 
+        txt_fecha.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_nombre.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_matricula.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_sexo.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_edad.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_sala.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_telefono.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_religion.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_ocupacion.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_estadoCivil.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_medicoTratante.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_origen.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_radica.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_eciv.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_ocup.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_escolaridad.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_svsMunicipales.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_religion2.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_habitacion.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_higienePnal.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_alimentacion.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_pasatiempo.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_otros.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_dominio.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_hijos.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_3_TA.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_3_TEMP.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_3_FC.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_3_FR.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_4_Rfelejos.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_4_Sensibilidad.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_4_Lenguaje_Orientacion.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_4_Otros.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_5_Sitio.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_sitio.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_otras.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_campoDolor.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+                
         btn_limpiar.addMouseListener(new WrapperMouse() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -1196,10 +1383,9 @@ public final class ValoracionTerapiaFisica extends JPanel {
                         txt_religion.setText("");
                         txt_ocupacion.setText("");
                         txt_fecha.setText("");
-
-                        System.out.println(" estoy hartop");
+                     
+                    }else {
                         
-                    } else {
                     }
 
                 } catch (DiaInvalido | MesInvalido ex) {
