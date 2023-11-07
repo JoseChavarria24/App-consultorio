@@ -20,15 +20,15 @@ public class ConexionBD {
 
     public static Connection getConexionBD() {
         try {
-            String url = "jdbc:mysql://localhost/NOMBRE DE LA BD";
-            String usuario = "USUARIO";
-            String password = "CONTRASEÑA";
+            String url = "jdbc:mysql://localhost/NOMBRE DE LA BD";//Incompleto
+            String usuario = "USUARIO";//Incompleto
+            String password = "CONTRASEÑA";//Incompleto
             conexion = (Connection) DriverManager.getConnection(url, usuario, password);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
             System.exit(0);
         }
-        return null;
+        return conexion;
 
     }
 }
