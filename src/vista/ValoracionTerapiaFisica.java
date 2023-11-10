@@ -1106,14 +1106,14 @@ public final class ValoracionTerapiaFisica extends JPanel {
 
         this.add(panel_Botones, gbcPanel);
 
-        txt_fecha.addKeyListener(new WrapperKey(){
-            public void KeyTyped(KeyEvent e){
-                
-            }
-        });
         txt_nombre.addKeyListener(new WrapperKey(){
             public void KeyTyped(KeyEvent e){
-                
+                char letra = e.getKeyChar();
+                if(permitida(1,letra)){
+                    mayusculas(e);
+                }else{
+                    e.consume();
+                }
             }
         });
         txt_matricula.addKeyListener(new WrapperKey(){
