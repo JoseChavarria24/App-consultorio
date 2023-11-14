@@ -20,9 +20,9 @@ public class ConexionBD {
 
     public static Connection getConexionBD() {
         try {
-            String url = "jdbc:mysql://localhost/dbconsultorio";//Incompleto
-            String usuario = "Jose Chavarria";//Incompleto
-            String password = "HomieAlone124.";//Incompleto
+            String url = "jdbc:mysql://localhost/dbconsultorio";
+            String usuario = "Jose Chavarria";
+            String password = "HomieAlone124.";
             conexion = (Connection) DriverManager.getConnection(url, usuario, password);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());

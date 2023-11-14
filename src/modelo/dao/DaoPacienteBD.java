@@ -4,9 +4,17 @@
  */
 package modelo.dao;
 
-import com.sun.jdi.connect.spi.Connection;
-import modelo.conexion.ConexionBD;
+
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import modelo.vo.Paciente;
+import modelo.conexion.ConexionBD;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  *
@@ -16,7 +24,7 @@ public class DaoPacienteBD {
     private final Connection conexion;
     
     public DaoPacienteBD(){
-        this.conexion = ConexionBD.getConexionBD;
+        this.conexion = (Connection) ConexionBD.getConexionBD();
     }
     
     public Paciente agregarDAO(Paciente cte){
@@ -24,15 +32,20 @@ public class DaoPacienteBD {
             String qryInsert;
             //Preparar comando
             PreparedStatement ps;
-            qryInsert = "INSERT INTO pacientes()" //Incompleto
+            qryInsert = "INSERT INTO pacientes(matricula,nombre,fechaNacimiento,sexo,)"
+                    +"edad,telefono,estadoCivil,religion,ocupacion"; //Incompleto
                     
             //Modificar ps.getString() con campos que se guardan del registro de paciente
             ps = conexion.prepareStatement(qryInsert);
-            ps.setString(1,cte.getCosa1());
-            ps.setString(2,cte.getCosa2());
-            ps.setString(3,cte.getCosa3());
-            ps.setString(4,cte.getCosa4());
-            ps.setString(5,cte.getCosa5());
+            ps.setString(1,String.valueOf(cte.getMatricula()));
+            ps.setString(2,String.valueOf(cte.getNombre()));
+            ps.setString(3,String.valueOf(cte.getFechaNacimiento()));
+            ps.setString(4,String.valueOf(cte.getSexo()));
+            ps.setString(5,String.valueOf(cte.getEdad()));
+            ps.setString(6,String.valueOf(cte.getTelefono()));
+            ps.setString(7,String.valueOf(cte.getEstadoCivil()));
+            ps.setString(8,cte.getReligion());
+            ps.setString(5,cte.getOcupacion());
             ps.executeUpdate();
         
         }catch (SQLException ex){
@@ -48,16 +61,25 @@ public class DaoPacienteBD {
             PreparedStatement ps;
             qryUpdate = "UPDATE pacientes SET"
                     + "nombre = ?"
-                    + "... = ?"
-                    + "... = ?"
+                    + "fechaNacimiento = ?"
+                    + "sexo = ?"
+                    + "edad = ?"
+                    + "telefono = ?"
+                    + "estadoCivil = ?"
+                    + "religion = ?"
+                    + "ocupacion = ?"
                     + "WHERE ... = ?";
             ps = conexion.prepareStatement(qryUpdate);
             
-            ps.setString(1,cte.getCosa1());
-            ps.setString(2,cte.getCosa2());
-            ps.setString(3,cte.getCosa3());
-            ps.setString(4,cte.getCosa4());
-            ps.setString(5,cte.getCosa5());
+            ps.setString(1,String.valueOf(cte.getMatricula()));
+            ps.setString(2,String.valueOf(cte.getNombre()));
+            ps.setString(3,String.valueOf(cte.getFechaNacimiento()));
+            ps.setString(4,String.valueOf(cte.getSexo()));
+            ps.setString(5,String.valueOf(cte.getEdad()));
+            ps.setString(6,String.valueOf(cte.getTelefono()));
+            ps.setString(7,String.valueOf(cte.getEstadoCivil()));
+            ps.setString(8,cte.getReligion());
+            ps.setString(5,cte.getOcupacion());
             numRegistrosModificados =ps.executeUpdate();
         }catch (SQLException ex){
             numRegistrosModificados = 0;
@@ -71,9 +93,9 @@ public class DaoPacienteBD {
             String qryDelete;
             qryDelete = "DELETE FROM pacientes WHERE matricula = ?";
             
-            PreparedStatementn ps;
-            ps = conexion.prepareStetement(qryDelete);
-            ps.setString(1,cte.getMatricula());
+            PreparedStatement ps;
+            ps = conexion.prepareStatement(qryDelete);
+            ps.setString(1,String.valueOf(cte.getMatricula()));
             numRegistrosEliminados = ps.executeUpdate();
         }catch (SQLException ex){
             numRegistrosEliminados = 0;
@@ -81,27 +103,71 @@ public class DaoPacienteBD {
         return numRegistrosEliminados;
     }
     
-    public Paciente consultarDAO(String matricula){
+    public Paciente consultarDAO(String nombre){
         String qrySelect;
-        qrySelect = "SELECT * FROM pacientes WHERE matricula = ?";
+        qrySelect = "SELECT * FROM pacientes WHERE "
+                +"nombre = ?";
         
         PreparedStatement ps;
         ResultSet consulta;
         
         try{
             ps = conexion.prepareStatement(qrySelect);
-            ps.setString(1,matricula);
+            ps.setString(1,nombre);
             consulta = ps.executeQuery();
             if(consulta.next()){
-                String Cosa1 = consulta.getString("Cosa1");
-                //Modificar los strings que devuelve y agregar el resto  faltantes
-                return new Paciente(matricula,...,...);
+                String matricula = consulta.getString("matricula");
+                nombre = consulta.getString("nombre");
+                String fechaNacimiento = consulta.getString("fechaNacimiento");
+                String sexo = consulta.getString("sexo");
+                String edad = consulta.getString("edad");
+                String telefono = consulta.getString("telefono");
+                String estadoCivil = consulta.getString("estadoCivil");
+                String religion = consulta.getString("religion");
+                String ocupacion = consulta.getString("ocupacion");
+                return new Paciente(matricula,nombre,String.valueOf(fechaNacimiento),sexo,edad,estadoCivil,religion,ocupacion);
             }else {
                 return null;
             }
         }catch (SQLException e){
             return null;
         }
+    }
+    
+    private List<Paciente> consultarPacientes(String ordenConsulta){
+        List<Paciente> pacientes = new ArrayList();
+        String qrySelect;
+        qrySelect = "SELECT * FROM pacientes " + ordenConsulta;
+        
+        PreparedStatement ps;
+        ResultSet consulta;
+        try{
+            ps = conexion.prepareStatement(qrySelect);
+            consulta = ps.executeQuery();
+            while(consulta.next()){
+                String matricula = consulta.getString("matricula");
+                String nombre = consulta.getString("nombre");
+                String fechaNacimiento = consulta.getString("fechaNacimiento");
+                String sexo = consulta.getString("sexo");
+                String edad = consulta.getString("edad");
+                String telefono = consulta.getString("telefono");
+                String estadoCivil = consulta.getString("estadoCivil");
+                String religion = consulta.getString("religion");
+                String ocupacion = consulta.getString("ocupacion");
+                Paciente cte = new Paciente(matricula,nombre,fechaNacimiento,
+                    sexo,edad,telefono,estadoCivil,religion,ocupacion);
+                pacientes.add(cte);
+                
+            }
+            return pacientes;
+        }catch (SQLException e){
+            return null;
+        }
+    }
+    
+    public List<Paciente> getListaClientes(String matricula){
+        List<Paciente> pacientes = consultarPacientes("ORDER by matricula ");
+        return pacientes;
     }
     
     
