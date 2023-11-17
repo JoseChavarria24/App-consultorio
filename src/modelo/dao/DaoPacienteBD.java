@@ -119,13 +119,13 @@ public class DaoPacienteBD {
                 String matricula = consulta.getString("matricula");
                 nombre = consulta.getString("nombre");
                 String fechaNacimiento = consulta.getString("fechaNacimiento");
-                String sexo = consulta.getChar("sexo");
+                String sexo = consulta.getString("sexo");
                 String edad = consulta.getString("edad");
                 String telefono = consulta.getString("telefono");
                 String estadoCivil = consulta.getString("estadoCivil");
                 String religion = consulta.getString("religion");
                 String ocupacion = consulta.getString("ocupacion");
-                return new Paciente((Fecha)fecha,nombre,;
+                return new Paciente(matricula,nombre,fechaNacimiento,sexo,edad,estadoCivil,religion,ocupacion);
             }else {
                 return null;
             }
