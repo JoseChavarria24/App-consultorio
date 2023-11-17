@@ -135,6 +135,7 @@ public class Calendario {
         return ComponenteFecha;
     }
    public String getComponenteHoram() {
+       componenteHoram=hora+":"+minuto;
         return componenteHoram;
     }
 
