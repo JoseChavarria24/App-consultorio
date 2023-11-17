@@ -9,7 +9,6 @@ import vista.ValoracionTerapiaFisica;
 
 public class Relaciones {
     public void crearObjetos(){
-        System.out.println("se crearon los objetos");
         //Se crea el objeto del Menu(Ventana principal) y se pone visible, no se comunica con el modelo
         Menu menuPrincipal = new Menu();
         menuPrincipal.setVisible(true);

@@ -14,14 +14,10 @@ import utilerias.WrapperMouse;
 import Repositorio.RepositorioPacientes;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import modelo.vo.Calendario;
+import utilerias.WrapperKey;
 
 public final class ValoracionTerapiaFisica extends JPanel {
 
-    
-    Calendario cale;
-    
     MouseEvent seleccion;
     RepositorioPacientes repoPac = new RepositorioPacientes();
     //Llamado de los dos primeros páneles:
@@ -189,11 +185,15 @@ public final class ValoracionTerapiaFisica extends JPanel {
 
     JScrollPane sb_panel;
 
-    public ValoracionTerapiaFisica(){
+    int Escala[];
+    
+    public ValoracionTerapiaFisica() {
         agregarComponentes();
     }
 
-    public void agregarComponentes()  {
+    public void agregarComponentes() {
+        Escala = new int[11];
+        int[] Escala = {0,1,2,3,4,5,6,7,8,9,10};
         Insets insets = new Insets(10, 10, 10, 10);
         int fill = GridBagConstraints.HORIZONTAL;
         Font Fuente_lbl = new Font("Arial", Font.BOLD, 15);
@@ -201,10 +201,6 @@ public final class ValoracionTerapiaFisica extends JPanel {
         Color color_lbl = new Color(0, 0, 0);
         Color color_fondo = new Color(224, 224, 224, 100);
 
-        
-        //Objeto Calndario
-        
-        cale= new Calendario();
         //Componentes del Panel 10 Botones (Falta modificar posiciones)
         btn_guardar = new JButton("GUARDAR");
         btn_limpiar = new JButton("LIMPIAR");
@@ -296,8 +292,6 @@ public final class ValoracionTerapiaFisica extends JPanel {
         lbl_medicoTratante.setForeground(color_lbl);
 
         MyTextField txt_fecha = new MyTextField();
-        txt_fecha.setText(cale.getComponenteFecha());
-        txt_fecha.setEditable(false);
         MyTextField txt_nombre = new MyTextField();
         MyTextField txt_matricula = new MyTextField();
         MyTextField txt_sexo = new MyTextField();
@@ -645,8 +639,42 @@ public final class ValoracionTerapiaFisica extends JPanel {
         ck_camillaFinal.setBackground(color_fondo);
 
         cb_escala = new JComboBox();
+        cb_escala.addItem(Escala[0]);
+        cb_escala.addItem(Escala[1]);
+        cb_escala.addItem(Escala[2]);
+        cb_escala.addItem(Escala[3]);
+        cb_escala.addItem(Escala[4]);
+        cb_escala.addItem(Escala[5]);
+        cb_escala.addItem(Escala[6]);
+        cb_escala.addItem(Escala[7]);
+        cb_escala.addItem(Escala[8]);
+        cb_escala.addItem(Escala[9]);
+        cb_escala.addItem(Escala[10]);
         cb_final = new JComboBox();
+        cb_final.addItem(Escala[0]);
+        cb_final.addItem(Escala[1]);
+        cb_final.addItem(Escala[2]);
+        cb_final.addItem(Escala[3]);
+        cb_final.addItem(Escala[4]);
+        cb_final.addItem(Escala[5]);
+        cb_final.addItem(Escala[6]);
+        cb_final.addItem(Escala[7]);
+        cb_final.addItem(Escala[8]);
+        cb_final.addItem(Escala[9]);
+        cb_final.addItem(Escala[10]);
         cb_inicial = new JComboBox();
+        cb_inicial.addItem(Escala[0]);
+        cb_inicial.addItem(Escala[1]);
+        cb_inicial.addItem(Escala[2]);
+        cb_inicial.addItem(Escala[3]);
+        cb_inicial.addItem(Escala[4]);
+        cb_inicial.addItem(Escala[5]);
+        cb_inicial.addItem(Escala[6]);
+        cb_inicial.addItem(Escala[7]);
+        cb_inicial.addItem(Escala[8]);
+        cb_inicial.addItem(Escala[9]);
+        cb_inicial.addItem(Escala[10]);
+        
 
         lbl_titulo9 = new JLabel("Dolor");
         lbl_dolorRPID = new JLabel("Dolor: región principal y la irradiación del dolor:");
@@ -684,7 +712,7 @@ public final class ValoracionTerapiaFisica extends JPanel {
 
         subtitulo.setLayout(new BorderLayout());
         subtitulo.add(lbl_titulo9, BorderLayout.WEST);
-         
+
         //declaracion de componentes panel 1
         agregarComponentes(panel_uno, lbl_fecha, 0, 0, 1, 1, 0, 0, fill, insets, 10, 10);
         agregarComponentes(panel_uno, txt_fecha, 1, 0, 2, 1, 1, 0, fill, insets, 10, 10);
@@ -1078,11 +1106,197 @@ public final class ValoracionTerapiaFisica extends JPanel {
 
         this.add(panel_Botones, gbcPanel);
 
+        txt_nombre.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                char letra = e.getKeyChar();
+                if(permitida(1,letra)){
+                    mayusculas(e);
+                }else{
+                    e.consume();
+                }
+            }
+        });
+        txt_matricula.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_sexo.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_edad.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_sala.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_telefono.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_religion.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_ocupacion.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_estadoCivil.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_medicoTratante.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_origen.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_radica.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_eciv.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_ocup.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_escolaridad.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_svsMunicipales.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_religion2.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_habitacion.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_higienePnal.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_alimentacion.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_pasatiempo.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_otros.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_dominio.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_hijos.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_3_TA.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_3_TEMP.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_3_FC.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_3_FR.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_4_Rfelejos.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_4_Sensibilidad.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_4_Lenguaje_Orientacion.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_4_Otros.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_5_Sitio.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_sitio.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_otras.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+        txt_campoDolor.addKeyListener(new WrapperKey(){
+            public void KeyTyped(KeyEvent e){
+                
+            }
+        });
+                
         btn_limpiar.addMouseListener(new WrapperMouse() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 //panel 1
-                txt_fecha.setText(cale.getComponenteFecha());
+                txt_fecha.setText("");
                 txt_nombre.setText("");
                 txt_matricula.setText("");
                 txt_sexo.setText("");
@@ -1176,7 +1390,7 @@ public final class ValoracionTerapiaFisica extends JPanel {
                 String edoCivilStr = txt_estadoCivil.getText();
                 String religion = txt_religion.getText();
                 String ocupacion = txt_ocupacion.getText();
-                String fechaCadena = cale.getComponenteFecha();
+                String fechaCadena = txt_fecha.getText();
 
                 try {
                     int matricula = Integer.parseInt(matriculaStr);
@@ -1206,11 +1420,10 @@ public final class ValoracionTerapiaFisica extends JPanel {
                         txt_estadoCivil.setText("");
                         txt_religion.setText("");
                         txt_ocupacion.setText("");
-                        txt_fecha.setText(cale.getComponenteFecha());
-
-                        System.out.println(" estoy hartop");
+                        txt_fecha.setText("");
+                     
+                    }else {
                         
-                    } else {
                     }
 
                 } catch (DiaInvalido | MesInvalido ex) {
@@ -1300,7 +1513,6 @@ public final class ValoracionTerapiaFisica extends JPanel {
         gbc.ipadx = ipadx;
         gbc.ipady = ipady;
         panel.add(componente, gbc);
-        
     }
 
     private void configurarComponentes(JComponent contenedor, JComponent componente,
