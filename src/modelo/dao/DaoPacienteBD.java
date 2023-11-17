@@ -125,7 +125,7 @@ public class DaoPacienteBD {
                 String estadoCivil = consulta.getString("estadoCivil");
                 String religion = consulta.getString("religion");
                 String ocupacion = consulta.getString("ocupacion");
-                return new Paciente(matricula,nombre,String.valueOf(fechaNacimiento),sexo,edad,estadoCivil,religion,ocupacion);
+                return new Paciente(matricula,nombre,fechaNacimiento,sexo,edad,estadoCivil,religion,ocupacion);
             }else {
                 return null;
             }
