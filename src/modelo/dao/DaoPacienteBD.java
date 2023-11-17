@@ -14,6 +14,9 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import modelo.excepciones.DiaInvalido;
+import modelo.excepciones.MesInvalido;
+import modelo.vo.Fecha;
 
 
 /**
@@ -22,7 +25,8 @@ import java.util.List;
  */
 public class DaoPacienteBD {
     private final Connection conexion;
-    
+               private    Fecha fecha;
+
     public DaoPacienteBD(){
         this.conexion = (Connection) ConexionBD.getConexionBD();
     }
@@ -103,7 +107,7 @@ public class DaoPacienteBD {
         return numRegistrosEliminados;
     }
     
-    public Paciente consultarDAO(String nombre){
+    public Paciente consultarDAO(String nombre) throws DiaInvalido, MesInvalido{
         String qrySelect;
         qrySelect = "SELECT * FROM pacientes WHERE "
                 +"nombre = ?";
@@ -125,7 +129,7 @@ public class DaoPacienteBD {
                 String estadoCivil = consulta.getString("estadoCivil");
                 String religion = consulta.getString("religion");
                 String ocupacion = consulta.getString("ocupacion");
-                return new Paciente(matricula,nombre,fechaNacimiento,sexo,edad,estadoCivil,religion,ocupacion);
+                return new Paciente(fecha.sacarFechaCadena(fechaNacimiento),nombre, Integer.parseInt( matricula), sexo, Integer.parseInt(edad),Integer.parseInt(telefono),Integer.parseInt( estadoCivil), religion, ocupacion);
             }else {
                 return null;
             }
@@ -134,7 +138,7 @@ public class DaoPacienteBD {
         }
     }
     
-    private List<Paciente> consultarPacientes(String ordenConsulta){
+    private List<Paciente> consultarPacientes(String ordenConsulta) throws DiaInvalido, MesInvalido{
         List<Paciente> pacientes = new ArrayList();
         String qrySelect;
         qrySelect = "SELECT * FROM pacientes " + ordenConsulta;
@@ -145,6 +149,8 @@ public class DaoPacienteBD {
             ps = conexion.prepareStatement(qrySelect);
             consulta = ps.executeQuery();
             while(consulta.next()){
+                
+                
                 String matricula = consulta.getString("matricula");
                 String nombre = consulta.getString("nombre");
                 String fechaNacimiento = consulta.getString("fechaNacimiento");
@@ -154,8 +160,9 @@ public class DaoPacienteBD {
                 String estadoCivil = consulta.getString("estadoCivil");
                 String religion = consulta.getString("religion");
                 String ocupacion = consulta.getString("ocupacion");
-                Paciente cte = new Paciente(matricula,nombre,fechaNacimiento,
-                    sexo,edad,telefono,estadoCivil,religion,ocupacion);
+                
+                
+                Paciente cte = new Paciente(fecha.sacarFechaCadena(fechaNacimiento),nombre, Integer.parseInt( matricula), sexo, Integer.parseInt(edad),Integer.parseInt(telefono),Integer.parseInt( estadoCivil), religion, ocupacion);
                 pacientes.add(cte);
                 
             }
@@ -165,7 +172,7 @@ public class DaoPacienteBD {
         }
     }
     
-    public List<Paciente> getListaClientes(String matricula){
+    public List<Paciente> getListaClientes(String matricula) throws DiaInvalido, MesInvalido{
         List<Paciente> pacientes = consultarPacientes("ORDER by matricula ");
         return pacientes;
     }

@@ -1394,7 +1394,7 @@ public final class ValoracionTerapiaFisica extends JPanel {
 
                 try {
                     int matricula = Integer.parseInt(matriculaStr);
-                    char sexo = sexoStr.charAt(0);
+                    String sexo = sexoStr;
                     int edad = Integer.parseInt(edadStr);
                     int telefono = Integer.parseInt(telefonoStr);
                     int edoCivil = Integer.parseInt(edoCivilStr);

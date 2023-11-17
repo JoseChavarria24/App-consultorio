@@ -6,7 +6,7 @@ package modelo.vo;
     private Fecha fechaNacimiento;
     private String nombre;
     private int matricula;
-    private char sexo;
+    private String sexo;
     private int edad;
     private int telefono;
     private int estadoCivil;
@@ -14,7 +14,7 @@ package modelo.vo;
     private String ocupacion;
     public String cita;
 
-    public Paciente(Fecha fechaNacimiento, String nombre, int matricula, char sexo, int edad, int telefono, int estadoCivil, String religion, String ocupacion) {
+    public Paciente(Fecha fechaNacimiento, String nombre, int matricula, String sexo, int edad, int telefono, int estadoCivil, String religion, String ocupacion) {
         this.fechaNacimiento = fechaNacimiento;
         this.nombre = nombre;
         this.matricula = matricula;
@@ -59,11 +59,11 @@ package modelo.vo;
         this.matricula = matricula;
     }
 
-    public char getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(char sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 

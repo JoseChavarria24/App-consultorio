@@ -95,7 +95,7 @@ public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
             pa.setEstadoCivil((int) aValue); // Suponiendo que el estado civil es una cadena
             break;
         case 3:
-            pa.setSexo(((String) aValue).charAt(0)); // Suponiendo que el sexo es un carácter
+            pa.setSexo(((String) aValue)); // Suponiendo que el sexo es un carácter
             break;
         case 7:
             pa.setReligion((String) aValue);

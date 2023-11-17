@@ -136,6 +136,17 @@ public class Fecha{
         //Restarle años a la fecha
     }
 
+    public Fecha sacarFechaCadena(String cad) throws DiaInvalido, MesInvalido{
+        int diap,mesp,añop;
+        
+        diap=cad.charAt(0)+cad.charAt(1);
+        mesp= cad.charAt(3)+cad.charAt(4);
+        añop= cad.charAt(6)+cad.charAt(7);
+        
+        Fecha f= new Fecha(diap,mesp,añop);
+        return f;
+        
+    }
     @Override
     public String toString() {
         return dia + "/" + mes + "/" + año;
