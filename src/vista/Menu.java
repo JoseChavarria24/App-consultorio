@@ -86,7 +86,7 @@ public class Menu extends JFrame {
         lbl_oeste0 = new JLabel(" REGISTRO ");
         lbl_oeste1 = new JLabel(" PACIENTE ");
         lbl_oeste2 = new JLabel(" CITAS ");
-        lbl_oeste3 = new JLabel("--");
+        lbl_oeste3 = new JLabel(" NOTAS ");
         lbl_oeste4 = new JLabel(" SALIR ");
         lbl_logo = new JLabel(new ImageIcon("Logo.png"));
 
@@ -213,7 +213,7 @@ public class Menu extends JFrame {
         panel_oeste3.addMouseListener(new WrapperMouse() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                mostrarPanel(new Botones());
+                mostrarPanel(new PanelNotasDeSesion());
             }
             @Override
             public void mouseEntered(MouseEvent e) {
