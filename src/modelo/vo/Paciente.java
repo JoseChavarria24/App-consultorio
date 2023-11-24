@@ -9,12 +9,12 @@ package modelo.vo;
     private String sexo;
     private int edad;
     private int telefono;
-    private int estadoCivil;
+    private String estadoCivil;
     private String religion;
     private String ocupacion;
     public String cita;
 
-    public Paciente(Fecha fechaNacimiento, String nombre, int matricula, String sexo, int edad, int telefono, int estadoCivil, String religion, String ocupacion) {
+    public Paciente(Fecha fechaNacimiento, String nombre, int matricula, String sexo, int edad, int telefono, String estadoCivil, String religion, String ocupacion) {
         this.fechaNacimiento = fechaNacimiento;
         this.nombre = nombre;
         this.matricula = matricula;
@@ -83,11 +83,11 @@ package modelo.vo;
         this.telefono = telefono;
     }
 
-    public int getEstadoCivil() {
+    public String getEstadoCivil() {
         return estadoCivil;
     }
 
-    public void setEstadoCivil(int estadoCivil) {
+    public void setEstadoCivil(String estadoCivil) {
         this.estadoCivil = estadoCivil;
     }
 
