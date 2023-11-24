@@ -19,6 +19,6 @@ public class AppConsultorio {
         app.setVisible(true);
         
         RepositorioPacientes.CargaDatosPaciente();
-           }
+    }
     
 }

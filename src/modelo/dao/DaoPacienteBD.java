@@ -129,7 +129,7 @@ public class DaoPacienteBD {
                 String estadoCivil = consulta.getString("estadoCivil");
                 String religion = consulta.getString("religion");
                 String ocupacion = consulta.getString("ocupacion");
-                return new Paciente(fecha.sacarFechaCadena(fechaNacimiento),nombre, Integer.parseInt( matricula), sexo, Integer.parseInt(edad),Integer.parseInt(telefono),Integer.parseInt( estadoCivil), religion, ocupacion);
+                return new Paciente(fecha.sacarFechaCadena(fechaNacimiento),nombre, Integer.parseInt( matricula), (sexo+""), Integer.parseInt(edad),Integer.parseInt(telefono),Integer.parseInt( estadoCivil), religion, ocupacion);
             }else {
                 return null;
             }
