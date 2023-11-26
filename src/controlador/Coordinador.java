@@ -49,15 +49,15 @@ public class Coordinador {
    */
     
    public void coord_agregarPaciente(Paciente pac){
-       logicaPaciente.logica_agregarPaciente(pac);
+       logicaPaciente.agregarPacienteLogica(pac);
    }
    
    public void coord_modificarPaciente(Paciente pac){
-       logicaPaciente.logica_modificarPaciente(pac);
+       logicaPaciente.modificarDAO(pac);
    }
    
    public void coord_eliminarPaciente(Paciente pac){
-       logicaPaciente.logica_eliminarPaciente(pac);
+       logicaPaciente.eliminarDAO(pac);
    }
    
 }

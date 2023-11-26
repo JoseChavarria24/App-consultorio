@@ -12,12 +12,14 @@ import modelo.vo.Paciente;
 import modelo.conexion.ConexionBD;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import modelo.excepciones.DiaInvalido;
 import modelo.excepciones.MesInvalido;
 import modelo.vo.Fecha;
-
+ 
 
 /**
  *
@@ -36,11 +38,34 @@ public class DaoPacienteBD {
             String qryInsert;
             //Preparar comando
             PreparedStatement ps;
-            qryInsert = "INSERT INTO pacientes(matricula,nombre,fechaNacimiento,sexo,)"
-                    +"edad,telefono,estadoCivil,religion,ocupacion"; //Incompleto
-                    
+            qryInsert = "INSERT INTO pacientes(matricula,nombre,fechaNacimiento,sexo,"
+                    +"edad,telefono,estadoCivil,religion,ocupacion)"
+                    + "VALUES(?,?,?,?,?,?,?,?)"; 
+            ps = conexion.prepareStatement(qryInsert, 
+                    Statement.RETURN_GENERATED_KEYS);
+             ps.setString(1,String.valueOf(cte.getMatricula()));//no mover
+            ps.setString(2,String.valueOf(cte.getNombre()));
+            ps.setString(3,String.valueOf(cte.getFechaNacimiento()));
+            ps.setString(4,String.valueOf(cte.getSexo()));
+            ps.setString(5,String.valueOf(cte.getEdad()));
+            ps.setString(6,String.valueOf(cte.getTelefono()));
+            ps.setString(7,String.valueOf(cte.getEstadoCivil()));
+            ps.setString(8,cte.getReligion());
+            ps.setString(5,cte.getOcupacion());
+            int numeroRegistrosIns = ps.executeUpdate();
+            
+            ResultSet rs;
+            if (numeroRegistrosIns == 0) {
+                    throw new SQLException("No se pudo guardar");
+            }else{
+                rs = ps.getGeneratedKeys();  
+                rs.next();  
+                int id = rs.getInt(1);  
+                cte.setMatricula(id);
+            }
+            return cte;
             //Modificar ps.getString() con campos que se guardan del registro de paciente
-            ps = conexion.prepareStatement(qryInsert);
+            /*ps = conexion.prepareStatement(qryInsert);
             ps.setString(1,String.valueOf(cte.getMatricula()));
             ps.setString(2,String.valueOf(cte.getNombre()));
             ps.setString(3,String.valueOf(cte.getFechaNacimiento()));
@@ -50,12 +75,12 @@ public class DaoPacienteBD {
             ps.setString(7,String.valueOf(cte.getEstadoCivil()));
             ps.setString(8,cte.getReligion());
             ps.setString(5,cte.getOcupacion());
-            ps.executeUpdate();
+            ps.executeUpdate();*/
         
         }catch (SQLException ex){
-            return cte = null;
+            System.out.println("ERROR: " + ex.getMessage());
+            return null;
         }
-        return cte;
     }
     
     public int modificarDAO(Paciente cte){
@@ -72,7 +97,7 @@ public class DaoPacienteBD {
                     + "estadoCivil = ?"
                     + "religion = ?"
                     + "ocupacion = ?"
-                    + "WHERE ... = ?";
+                    + "WHERE Matricula = ?";//modificar
             ps = conexion.prepareStatement(qryUpdate);
             
             ps.setString(1,String.valueOf(cte.getMatricula()));
@@ -86,6 +111,7 @@ public class DaoPacienteBD {
             ps.setString(5,cte.getOcupacion());
             numRegistrosModificados =ps.executeUpdate();
         }catch (SQLException ex){
+            JOptionPane.showMessageDialog(null, "Error " + ex.getMessage());
             numRegistrosModificados = 0;
         }
         return numRegistrosModificados;
