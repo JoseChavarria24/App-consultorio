@@ -26,8 +26,7 @@ public class TablaPacientes extends JPanel{
         tablaPacientes.addAncestorListener(new AncestorListener() {
             @Override
             public void ancestorAdded(javax.swing.event.AncestorEvent event) {
-                          tablaPacientes.setModel(new ModeloPacientesTabla());
-
+               tablaPacientes.setModel(new ModeloPacientesTabla());
             }
 
             @Override

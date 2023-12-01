@@ -177,12 +177,12 @@ public final class ValoracionTerapiaFisica extends JPanel {
         Font Fuente_titulo = new Font("Arial", Font.BOLD, 20);
         Color color_lbl = new Color(0, 0, 0);
         Color color_fondo = new Color(224, 224, 224, 100);
-        String[] sexo = {"Seleccionar","Masculino","Femenino"};
-        String[] edoCiv = {"Seleccionar","Soltero","Casado","Divorciado"};
-        String[] escolaridad = {"Seleccionar","Basico","Medio superior","Superior"};
-        String[] dominio = {"Seleccionar","Diestro","Zurdo"};
-        String[] hijos ={"Seleccionar","Ninguno","Uno","Dos","Tres o mas"};
-        String[] escalaDolor ={"Seleccionar","0","1","2","3","4","5","6","7","8","9","10"};
+        String[] sexo = {"-Seleccionar-","Masculino","Femenino"};
+        String[] edoCiv = {"-Seleccionar-","Soltero","Casado","Divorciado"};
+        String[] escolaridad = {"-Seleccionar-","Basico","Medio superior","Superior"};
+        String[] dominio = {"-Seleccionar-","Diestro","Zurdo"};
+        String[] hijos ={"-Seleccionar-","Ninguno","Uno","Dos","Tres o mas"};
+        String[] escalaDolor ={"-Seleccionar-","0","1","2","3","4","5","6","7","8","9","10"};
         
         //objeto calendario
         cale = new Calendario();
@@ -734,16 +734,22 @@ public final class ValoracionTerapiaFisica extends JPanel {
         agregarComponentes(panel_dos, txt_ocupacion, 1, 3, 3, 1, 1, 1, fill, insets, 10, 10);
         agregarComponentes(panel_dos, lbl_estadoCivil, 4, 3, 1, 1, 1, 1, fill, insets, 10, 10);
         agregarComponentes(panel_dos, cb_estadoCivil, 5, 3, 3, 1, 1, 1, fill, insets, 10, 10);
-        agregarComponentes(panel_dos, lbl_higienePNAL, 0, 4, 1, 1, 1, 1, fill, insets, 10, 10);
-        agregarComponentes(panel_dos, txt_higienePNAL, 1, 4, 7, 1, 1, 1, fill, insets, 10, 10);
-        agregarComponentes(panel_dos, lbl_pasatiempo, 0, 5, 1, 1, 1, 1, fill, insets, 10, 10);
-        agregarComponentes(panel_dos, txt_pasatiempo, 1, 5, 7, 1, 1, 1, fill, insets, 10, 10);
-        agregarComponentes(panel_dos, lbl_alimentacion, 0, 6, 1, 1, 1, 1, fill, insets, 10, 10);
-        agregarComponentes(panel_dos, txt_alimentacion, 1, 6, 7, 1, 1, 1, fill, insets, 10, 10);
-        agregarComponentes(panel_dos, lbl_dominio, 0, 7, 1, 1, 1, 1, fill, insets, 10, 10);
-        agregarComponentes(panel_dos, cb_dominio, 1, 7, 3, 1, 1, 1, fill, insets, 10, 10);
-        agregarComponentes(panel_dos, lbl_hijos, 4, 7, 1, 1, 1, 1, fill, insets, 10, 10);
-        agregarComponentes(panel_dos, cb_hijos, 5, 7, 3, 1, 1, 1, fill, insets, 10, 10);
+        agregarComponentes(panel_dos, lbl_origen, 0, 4, 3, 1, 1, 1, fill, insets, 10, 10);
+        agregarComponentes(panel_dos, lbl_radica, 3, 4, 3, 1, 1, 1, fill, insets, 10, 10);
+        agregarComponentes(panel_dos, lbl_escolaridad, 6, 4, 2, 1, 1, 1, fill, insets, 10, 10);
+        agregarComponentes(panel_dos, txt_origen, 0, 5, 3, 1, 1, 1, fill, insets, 10, 10);
+        agregarComponentes(panel_dos, txt_radica, 3, 5, 3, 1, 1, 1, fill, insets, 10, 10);
+        agregarComponentes(panel_dos, cb_escolaridad, 6, 5, 2, 1, 1, 1, fill, insets, 10, 10);
+        agregarComponentes(panel_dos, lbl_higienePNAL, 0, 6, 1, 1, 1, 1, fill, insets, 10, 10);
+        agregarComponentes(panel_dos, txt_higienePNAL, 1, 6, 7, 1, 1, 1, fill, insets, 10, 10);
+        agregarComponentes(panel_dos, lbl_pasatiempo, 0, 7, 1, 1, 1, 1, fill, insets, 10, 10);
+        agregarComponentes(panel_dos, txt_pasatiempo, 1, 7, 7, 1, 1, 1, fill, insets, 10, 10);
+        agregarComponentes(panel_dos, lbl_alimentacion, 0, 8, 1, 1, 1, 1, fill, insets, 10, 10);
+        agregarComponentes(panel_dos, txt_alimentacion, 1, 8, 7, 1, 1, 1, fill, insets, 10, 10);
+        agregarComponentes(panel_dos, lbl_dominio, 0, 9, 1, 1, 1, 1, fill, insets, 10, 10);
+        agregarComponentes(panel_dos, cb_dominio, 1, 9, 3, 1, 1, 1, fill, insets, 10, 10);
+        agregarComponentes(panel_dos, lbl_hijos, 4, 9, 1, 1, 1, 1, fill, insets, 10, 10);
+        agregarComponentes(panel_dos, cb_hijos, 5, 9, 3, 1, 1, 1, fill, insets, 10, 10);
         
         panel_tres.add(lbl_Antecedentes_Patologicos);
         
@@ -912,7 +918,7 @@ public final class ValoracionTerapiaFisica extends JPanel {
                 ck_ayudas_Final.setSelected(false);
                 ck_camilla_Final.setSelected(false);
                 
-                //panel catorce
+                //panel dieciseis
                 txt_region_dolor.setText("");
                 cb_final.setSelectedIndex(0);
                 cb_inicial.setSelectedIndex(0);
@@ -926,7 +932,7 @@ public final class ValoracionTerapiaFisica extends JPanel {
                 String matriculaStr = txt_matricula.getText();
                 String sexoStr = (String) cb_sexo.getSelectedItem();
                 String edadStr = txt_edad.getText();
-                String telefonoStr = txt_telefono.getText();
+                int telefonoInt = Integer.parseInt(txt_telefono.getText());
                 String edoCivil = (String) cb_estadoCivil.getSelectedItem();
                 String religion = txt_religion.getText();
                 String ocupacion = txt_ocupacion.getText();
@@ -936,7 +942,7 @@ public final class ValoracionTerapiaFisica extends JPanel {
                     int matricula = Integer.parseInt(matriculaStr);
                     String sexo = sexoStr;
                     int edad = Integer.parseInt(edadStr);
-                    int telefono = Integer.parseInt(telefonoStr);
+                    int telefono = telefonoInt;
 
                     String[] fechaSeparada = fechaCadena.split("/");
                     if (fechaSeparada.length == 3) {
@@ -948,7 +954,6 @@ public final class ValoracionTerapiaFisica extends JPanel {
                         Fecha fecha = new Fecha(dia, mes, anio);
 
                         Paciente pac = new Paciente(fecha, nombre, matricula, sexo, edad, telefono, edoCivil, religion, ocupacion);
-                        RepositorioPacientes.CargaDatosPaciente();
                         repoPac.agregarPaciente(pac);
 
                         txt_nombre.setText("");

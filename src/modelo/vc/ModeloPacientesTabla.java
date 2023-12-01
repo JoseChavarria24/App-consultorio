@@ -14,11 +14,10 @@ import Repositorio.RepositorioPacientes;
 public class ModeloPacientesTabla extends AbstractTableModel{
     
     private List<Paciente> datosPacientes= RepositorioPacientes.getRepositorioPacientes();
-    private String titulosTPacientes[]= {"Nacimiento","Nombre","Matricula","Sexo","Edad","Telefono","Estado Civil","Religión","Ocupacion"};
+    private String titulosTPacientes[]= {"Registro","Nombre","Matricula","Sexo","Edad","Telefono","Estado Civil","Religión","Ocupacion"};
     
     public ModeloPacientesTabla(){
-        
-        
+       
     }
     
     @Override
