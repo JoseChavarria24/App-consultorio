@@ -4,22 +4,15 @@
  */
 package modelo.logica;
 
-import controlador.Coordinador;
-import modelo.dao.DaoPaciente;
+import modelo.dao.DaoPacienteBD;
 import modelo.vo.Paciente;
+import controlador.Coordinador;
 
-/**
- *
- * @author alejb
- */
 
-/*
-Falta completar esta clase y hacer DAOClinicaTerapia para que funcione
-*/
 
 
 public class LogicaPaciente {
-    DaoPaciente daoPaciente = new DaoPaciente();
+    DaoPacienteBD daoPaciente = new DaoPacienteBD();
     
     Coordinador coordinador = null;
     
@@ -27,7 +20,18 @@ public class LogicaPaciente {
         this.coordinador = coordinador;
     }
     
-    public void logica_agregarPaciente(Paciente pac){
+    public Paciente agregarPacienteLogica(Paciente cte){
+        return daoPaciente.agregarDAO(cte);
+    }
+    
+    public int modificarDAO(Paciente paciente){
+        return daoPaciente.modificarDAO(paciente);
+    }
+    
+    public int eliminarDAO(Paciente paciente){
+        return daoPaciente.eliminarDAO(paciente);
+    }
+    /*public void logica_agregarPaciente(Paciente pac){
         daoPaciente.Dao_agregarPaciente(pac);
     }
     
@@ -37,5 +41,5 @@ public class LogicaPaciente {
     
     public void logica_eliminarPaciente(Paciente pac){
         daoPaciente.Dao_eliminarPaciente(pac);
-    }
+    }*/
 }
