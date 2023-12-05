@@ -74,7 +74,7 @@ package modelo.vo;
             boolean etilismo, String TA, String Temp, String FR, String FC, String reflejos,
             String senisbilidad, String lenguajeOrientacion, String sitioEspasmo, String sitioCicatriz,
             boolean queloide, boolean retractil, boolean abierta, boolean adherencias, boolean hipertrofica, 
-            boolean libre, boolean claudicante, boolean espastica, boolean ataxica, boolean independiente,
+            boolean libre, boolean claudicante, boolean ayuda,boolean espastica, boolean ataxica, boolean independiente,
             boolean sillaDeRuedas, boolean ayudas, boolean camilla, boolean independienteFinal, boolean sillaDeRuedasFinal,
             boolean ayudasFinal, boolean camillaFinal, String regionDolor, String valInicial,  String valFinal){
         

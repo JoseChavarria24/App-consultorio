@@ -937,7 +937,64 @@ public final class ValoracionTerapiaFisica extends JPanel {
                 String religion = txt_religion.getText();
                 String ocupacion = txt_ocupacion.getText();
                 String fechaCadena = cale.getComponenteFecha();
+                //panel 2
+                String origen = txt_origen.getText();
+                String radica = txt_radica.getText();
+                String escolaridad = (String) cb_escolaridad.getSelectedItem();
+                String higiene  = txt_higienePNAL.getText();
+                boolean tabaquismo = ck_Tabaquismo.isSelected();
+                boolean etilismo = ck_Etilismo.isSelected();
+                String alimentacion = txt_alimentacion.getText();
+                String pasatiempo = txt_pasatiempo.getText();
+                String dominio = (String) cb_dominio.getSelectedItem();
+                String hijos = (String) cb_hijos.getSelectedItem();
 
+                //panel 3
+                boolean diabetes = ck_Diabetes.isSelected();
+                boolean HTA = ck_HTA.isSelected();
+                boolean cancer = ck_Cancer.isSelected();
+                boolean enfReumat = ck_EnfReumat.isSelected();
+                boolean cardiopatias = ck_Cardiopatias.isSelected();
+                boolean cirugias = ck_Cirugias.isSelected();
+                boolean alergias = ck_Alergias.isSelected();
+                boolean transfusiones = ck_Transfusiones.isSelected();
+                boolean accidentes = ck_Accidentes.isSelected();
+                boolean encames = ck_Encames.isSelected();
+                boolean fracturas = ck_Fracturas.isSelected();
+                String TA = txt_TA.getText();
+                String TEMP = txt_TEMP.getText();
+                String FC = txt_FC.getText();
+                String FR = txt_FR.getText();
+
+                //panel 4
+                String Reflejos = txt_Rfelejos.getText();
+                String Sensibilidad = txt_Sensibilidad.getText();
+                String LenguajeOrientacion = txt_Lenguaje_Orientacion.getText();
+                
+                String sitioEspasmos = txt_sitio_espasmos.getText();
+                String sitioCicatriz = txt_sitio_cicatriz.getText();
+                boolean queloide = ck_queloide.isSelected();
+                boolean retractil = ck_retractil.isSelected();
+                boolean abierta = ck_abierta.isSelected();
+                boolean adherencias = ck_adherencias.isSelected();
+                boolean hipertrofica = ck_hipertrofica.isSelected();
+                //panel 7
+                boolean libre = ck_libre.isSelected();
+                boolean claudicante = ck_claudicante.isSelected();
+                boolean ayuda = ck_ayuda.isSelected();
+                boolean espastica = ck_espastica.isSelected();
+                boolean ataxica = ck_ataxica.isSelected();
+                //panel 8
+                boolean independienteInicial = ck_independiente.isSelected();
+                boolean sillaDeRuedasInicial = ck_sillaDeRuedas.isSelected();
+                boolean ayudasInicial = ck_ayudas.isSelected();
+                boolean camillaInicial = ck_camilla.isSelected();
+                boolean independienteFinal = ck_independiente_Final.isSelected();
+                boolean sillaDeRuedasFinal = ck_sillaDeRuedas_Final.isSelected();
+                boolean ayudasFianl = ck_ayudas_Final.isSelected();
+                boolean camillaFinal = ck_camilla_Final.isSelected();
+                //panel 9
+                String campoDolor = txt_region_dolor.getText();
                 try {
                     int matricula = Integer.parseInt(matriculaStr);
                     String sexo = sexoStr;
@@ -953,15 +1010,18 @@ public final class ValoracionTerapiaFisica extends JPanel {
                         // Crea una instancia de Fecha
                         Fecha fecha = new Fecha(dia, mes, anio);
 
-                        Paciente pac = new Paciente(fecha, nombre, matricula, sexo, edad, telefono, edoCivil, religion, ocupacion);
+                        Paciente pac = new Paciente(fecha, nombre, matricula, sexo, edad, telefono, ,religion, ocupacion,edoCivil, origen, radica, escolaridad, higiene, pasatiempo, alimentacion,
+                        , dominio, hijos, diabetes, HTA, cancer, enfReumat, cardiopatias, cirugias, tabaquismo, alergias, transfusiones, accidentes, fracturas, etilismo, 
+                        TA, TEMP, FR, FC, Reflejos, Sensibilidad, LenguajeOrientacion, sitioEspasmos, sitioCicatriz, queloide, retractil, abierta, adherencias, hipertrofica, libre, claudicante,
+                        , ayuda,espastica, ataxica, independienteInicial, sillaDeRuedasInicial, ayudasInicial, camillaInicial, independienteFinal, sillaDeRuedasFinal, ayudasFinal, camillaFinal,regionDolor,
+                        , valInicial, valFinal);
+                        
                         repoPac.agregarPaciente(pac);
 
                         txt_nombre.setText("");
                         txt_matricula.setText("");
-                        //txt_sexo.setText("");
                         txt_edad.setText("");
                         txt_telefono.setText("");
-                        //txt_estadoCivil.setText("");
                         txt_religion.setText("");
                         txt_ocupacion.setText("");
                         txt_fecha.setText(cale.getComponenteFecha());
@@ -971,69 +1031,6 @@ public final class ValoracionTerapiaFisica extends JPanel {
                 } catch (DiaInvalido | MesInvalido ex) {
                 }
             }
-
-            //panel 2
-            String origen = txt_origen.getText();
-            String radica = txt_radica.getText();
-            String escolaridad = (String) cb_escolaridad.getSelectedItem();
-            boolean tabaquismo = ck_Tabaquismo.isSelected();
-            boolean etilismo = ck_Etilismo.isSelected();
-            String higienePnal = txt_higienePNAL.getText();
-            String alimentacion = txt_alimentacion.getText();
-            String pasatiempo = txt_pasatiempo.getText();
-            String dominio = (String) cb_dominio.getSelectedItem();
-            String hijos = (String) cb_hijos.getSelectedItem();
-            
-            //panel 3
-            boolean diabetes = ck_Diabetes.isSelected();
-            boolean HTA = ck_HTA.isSelected();
-            boolean cancer = ck_Cancer.isSelected();
-            boolean enfReumat = ck_EnfReumat.isSelected();
-            boolean cardiopatias = ck_Cardiopatias.isSelected();
-            boolean cirugias = ck_Cirugias.isSelected();
-            boolean alergias = ck_Alergias.isSelected();
-            boolean transfusiones = ck_Transfusiones.isSelected();
-            boolean accidentes = ck_Accidentes.isSelected();
-            boolean encames = ck_Encames.isSelected();
-            boolean fracturas = ck_Fracturas.isSelected();
-            String TA = txt_TA.getText();
-            String TEMP = txt_TEMP.getText();
-            String FC = txt_FC.getText();
-            String FR = txt_FR.getText();
-            
-            //panel 4
-            String Reflejos = txt_Rfelejos.getText();
-            String Sensibilidad = txt_Sensibilidad.getText();
-            String LenguajeOrientacion = txt_Lenguaje_Orientacion.getText();
-            
-            //panel 5
-            //String sitio_p_5 = txt_Sitio.getText();
-            //panel 6
-            //String sitio_p6 = txt_sitio.getText();
-            
-            boolean queloide = ck_queloide.isSelected();
-            boolean retractil = ck_retractil.isSelected();
-            boolean abierta = ck_abierta.isSelected();
-            boolean adherencias = ck_adherencias.isSelected();
-            boolean hipertroficca = ck_hipertrofica.isSelected();
-            //panel 7
-            boolean libre = ck_libre.isSelected();
-            boolean claudicante = ck_claudicante.isSelected();
-            boolean ayuda = ck_ayuda.isSelected();
-            boolean espastica = ck_espastica.isSelected();
-            boolean ataxica = ck_ataxica.isSelected();
-            //panel 8
-            boolean independienteInicial = ck_independiente.isSelected();
-            boolean sillaDeRuedasInicial = ck_sillaDeRuedas.isSelected();
-            boolean ayudasInicial = ck_ayudas.isSelected();
-            boolean camillaInicial = ck_camilla.isSelected();
-            boolean independienteFinal = ck_independiente_Final.isSelected();
-            boolean sillaDeRuedasFinal = ck_sillaDeRuedas_Final.isSelected();
-            boolean ayudasFianl = ck_ayudas_Final.isSelected();
-            boolean camillaFinal = ck_camilla_Final.isSelected();
-            //panel 9
-            String campoDolor = txt_region_dolor.getText();
-
         });
     }
 

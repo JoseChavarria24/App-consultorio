@@ -43,7 +43,7 @@ public class DaoPacienteBD {
                     + "VALUES(?,?,?,?,?,?,?,?)"; 
             ps = conexion.prepareStatement(qryInsert, 
                     Statement.RETURN_GENERATED_KEYS);
-             ps.setString(1,String.valueOf(cte.getMatricula()));//no mover
+            ps.setString(1,String.valueOf(cte.getMatricula()));//no mover
             ps.setString(2,String.valueOf(cte.getNombre()));
             ps.setString(3,String.valueOf(cte.getFechaNacimiento()));
             ps.setString(4,String.valueOf(cte.getSexo()));

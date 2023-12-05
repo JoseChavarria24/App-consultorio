@@ -100,7 +100,7 @@ public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
             pa.setReligion((String) aValue);
             break;
         case 5:
-            pa.setTelefono((int) aValue); // Suponiendo que el teléfono es una cadena
+            pa.setTelefono((String) aValue); // Suponiendo que el teléfono es una cadena
             break;
         case 8:
             pa.setOcupacion((String) aValue);
