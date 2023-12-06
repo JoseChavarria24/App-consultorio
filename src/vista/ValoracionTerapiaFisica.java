@@ -932,7 +932,7 @@ public final class ValoracionTerapiaFisica extends JPanel {
                 String matriculaStr = txt_matricula.getText();
                 String sexoStr = (String) cb_sexo.getSelectedItem();
                 String edadStr = txt_edad.getText();
-                int telefonoInt = Integer.parseInt(txt_telefono.getText());
+                String telefono = txt_telefono.getText();
                 String edoCivil = (String) cb_estadoCivil.getSelectedItem();
                 String religion = txt_religion.getText();
                 String ocupacion = txt_ocupacion.getText();
@@ -991,15 +991,17 @@ public final class ValoracionTerapiaFisica extends JPanel {
                 boolean camillaInicial = ck_camilla.isSelected();
                 boolean independienteFinal = ck_independiente_Final.isSelected();
                 boolean sillaDeRuedasFinal = ck_sillaDeRuedas_Final.isSelected();
-                boolean ayudasFianl = ck_ayudas_Final.isSelected();
+                boolean ayudasFinal = ck_ayudas_Final.isSelected();
                 boolean camillaFinal = ck_camilla_Final.isSelected();
                 //panel 9
-                String campoDolor = txt_region_dolor.getText();
+                String regionDolor = txt_region_dolor.getText();
+                String valInicial = (String) cb_inicial.getSelectedItem();
+                String valFinal = (String) cb_final.getSelectedItem();
+                
                 try {
                     int matricula = Integer.parseInt(matriculaStr);
                     String sexo = sexoStr;
                     int edad = Integer.parseInt(edadStr);
-                    int telefono = telefonoInt;
 
                     String[] fechaSeparada = fechaCadena.split("/");
                     if (fechaSeparada.length == 3) {
@@ -1010,11 +1012,11 @@ public final class ValoracionTerapiaFisica extends JPanel {
                         // Crea una instancia de Fecha
                         Fecha fecha = new Fecha(dia, mes, anio);
 
-                        Paciente pac = new Paciente(fecha, nombre, matricula, sexo, edad, telefono, ,religion, ocupacion,edoCivil, origen, radica, escolaridad, higiene, pasatiempo, alimentacion,
-                        , dominio, hijos, diabetes, HTA, cancer, enfReumat, cardiopatias, cirugias, tabaquismo, alergias, transfusiones, accidentes, fracturas, etilismo, 
-                        TA, TEMP, FR, FC, Reflejos, Sensibilidad, LenguajeOrientacion, sitioEspasmos, sitioCicatriz, queloide, retractil, abierta, adherencias, hipertrofica, libre, claudicante,
-                        , ayuda,espastica, ataxica, independienteInicial, sillaDeRuedasInicial, ayudasInicial, camillaInicial, independienteFinal, sillaDeRuedasFinal, ayudasFinal, camillaFinal,regionDolor,
-                        , valInicial, valFinal);
+                        Paciente pac = new Paciente(fecha,nombre,matricula,sexo,edad,telefono,religion,ocupacion,edoCivil,origen,radica,escolaridad,higiene,pasatiempo,alimentacion,dominio, hijos
+                        ,diabetes,HTA,cancer,enfReumat,cardiopatias,cirugias,tabaquismo,alergias,transfusiones,accidentes,fracturas,etilismo, 
+                        TA,TEMP,FR,FC,Reflejos,Sensibilidad,LenguajeOrientacion,sitioEspasmos,sitioCicatriz,queloide,retractil,abierta,adherencias,hipertrofica,libre,claudicante,
+                        ayuda,espastica,ataxica,independienteInicial,sillaDeRuedasInicial,ayudasInicial,camillaInicial,independienteFinal,sillaDeRuedasFinal,ayudasFinal,camillaFinal,regionDolor,
+                        valInicial,valFinal);
                         
                         repoPac.agregarPaciente(pac);
 

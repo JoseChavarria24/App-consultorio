@@ -1,10 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package modelo.dao;
-
-
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,9 +16,9 @@ import modelo.vo.Fecha;
  
 
 /**
- *
  * @author alejb
  */
+
 public class DaoPacienteBD {
     private final Connection conexion;
                private    Fecha fecha;
@@ -38,12 +32,26 @@ public class DaoPacienteBD {
             String qryInsert;
             //Preparar comando
             PreparedStatement ps;
-            qryInsert = "INSERT INTO pacientes(matricula,nombre,fechaNacimiento,sexo,"
-                    +"edad,telefono,estadoCivil,religion,ocupacion)"
-                    + "VALUES(?,?,?,?,?,?,?,?)"; 
+            qryInsert = "INSERT INTO pacientes(idPacientes,Nombre,FechaRegistro,sexo,"
+                    +"Edad,Telefono,Religion,Ocupacion, EdoCiv, "
+                    +"OriginarioDe, RadicaEn, Escolaridad, HIgiene, "
+                    +"Pasatiempo, Alimentacion, Dominio, Hijos, "
+                    +"Diabetes, HTA, Cancer, EnfReumat, "
+                    +"Cardiopatias, Cirugias, Tabaquismo, Alergias, "
+                    +"Transfusiones, Accidentes, Fracturas, Etilismo, "
+                    +"Accidentes, Fracturas, Etilismo, TA, "
+                    +"Temperatura, FR, FC, Reflejos "
+                    +"LenguejeOrientacion, SitioEspasmo, SitioCicatriz, Queloide "
+                    +"Retractil, Abierta, Adherente, Hipertrofica, "
+                    +"Libre, Claudicante, Ayuda, Espastica, "
+                    +"Ataxica, Independiente, EnSillaDeRuedas, ConAyudas, "
+                    +"EnCamilla, IndependienteFinal, EnSillaDeRuedasFinal, "
+                    +"AyudasFinal, EnCamillaFinal, RegionDolor, ValoracionInicial,"
+                    +"ValoracionFinal)"
+                    + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
             ps = conexion.prepareStatement(qryInsert, 
                     Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1,String.valueOf(cte.getMatricula()));//no mover
+            ps.setString(1,String.valueOf(cte.getMatricula()));
             ps.setString(2,String.valueOf(cte.getNombre()));
             ps.setString(3,String.valueOf(cte.getFechaNacimiento()));
             ps.setString(4,String.valueOf(cte.getSexo()));

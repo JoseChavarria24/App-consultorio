@@ -91,12 +91,12 @@ public class RepositorioPacientes {
         Fecha fechia= new Fecha(13,10,2002);
         
      
-        repositorioPacientes.add(new Paciente(fechia,"Enrique Rodriguez Guillen",01,"M",21,61412036,"Soltero","Buda","Programador Senior"));
-        repositorioPacientes.add(new Paciente(fechia,"Jose Santos Chavarria Valdez",01,"M",21,61412036,"Casado","Buda","Programador Senior"));
-        repositorioPacientes.add(new Paciente(fechia,"Lertín Gómez ",01,"M",21,61412037,"Divorciado","Buda","Programador Senior"));
-        repositorioPacientes.add(new Paciente(fechia,"Memo ochoa",01,"M",21,61412036,"Soltero","Buda","Programador Senior"));
-        repositorioPacientes.add(new Paciente(fechia,"Chocó perez",01,"M",21,61412036,"Soltero","Buda","Programador Senior"));
-        repositorioPacientes.add(new Paciente(fechia,"Jhon Cena",01,"M",21,61412036,"Divorciado","Buda","Programador Senior"));
+//        repositorioPacientes.add(new Paciente(fechia,"Enrique Rodriguez Guillen",01,"M",21,61412036,"Soltero","Buda","Programador Senior"));
+//        repositorioPacientes.add(new Paciente(fechia,"Jose Santos Chavarria Valdez",01,"M",21,61412036,"Casado","Buda","Programador Senior"));
+//        repositorioPacientes.add(new Paciente(fechia,"Lertín Gómez ",01,"M",21,61412037,"Divorciado","Buda","Programador Senior"));
+//        repositorioPacientes.add(new Paciente(fechia,"Memo ochoa",01,"M",21,61412036,"Soltero","Buda","Programador Senior"));
+//        repositorioPacientes.add(new Paciente(fechia,"Chocó perez",01,"M",21,61412036,"Soltero","Buda","Programador Senior"));
+//        repositorioPacientes.add(new Paciente(fechia,"Jhon Cena",01,"M",21,61412036,"Divorciado","Buda","Programador Senior"));
       
     }
 }
