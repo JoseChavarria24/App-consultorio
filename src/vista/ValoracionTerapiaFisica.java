@@ -165,6 +165,7 @@ public final class ValoracionTerapiaFisica extends JPanel {
     JButton btn_nuevoRegistro;
 
     JScrollPane sb_panel;
+    int seleccion;
     
     public ValoracionTerapiaFisica(){
         iniciarComponentes();
@@ -925,9 +926,11 @@ public final class ValoracionTerapiaFisica extends JPanel {
             }
         });
         
+
         btn_guardar.addMouseListener(new WrapperMouse() {
             @Override
             public void mouseClicked(MouseEvent e) {
+                seleccion = 1;
                 String nombre = txt_nombre.getText();
                 String matriculaStr = txt_matricula.getText();
                 String sexoStr = (String) cb_sexo.getSelectedItem();
@@ -998,43 +1001,115 @@ public final class ValoracionTerapiaFisica extends JPanel {
                 String valInicial = (String) cb_inicial.getSelectedItem();
                 String valFinal = (String) cb_final.getSelectedItem();
                 
-                try {
-                    int matricula = Integer.parseInt(matriculaStr);
-                    String sexo = sexoStr;
-                    int edad = Integer.parseInt(edadStr);
+                if(seleccion == 1){
+                    try {
+                        int matricula = Integer.parseInt(matriculaStr);
+                        String sexo = sexoStr;
+                        int edad = Integer.parseInt(edadStr);
 
-                    String[] fechaSeparada = fechaCadena.split("/");
-                    if (fechaSeparada.length == 3) {
-                        int dia = Integer.parseInt(fechaSeparada[0]);
-                        int mes = Integer.parseInt(fechaSeparada[1]);
-                        int anio = Integer.parseInt(fechaSeparada[2]);
+                        String[] fechaSeparada = fechaCadena.split("/");
+                        if (fechaSeparada.length == 3) {
+                            int dia = Integer.parseInt(fechaSeparada[0]);
+                            int mes = Integer.parseInt(fechaSeparada[1]);
+                            int anio = Integer.parseInt(fechaSeparada[2]);
 
-                        // Crea una instancia de Fecha
-                        Fecha fecha = new Fecha(dia, mes, anio);
+                            // Crea una instancia de Fecha
+                            Fecha fecha = new Fecha(dia, mes, anio);
 
-                        Paciente pac = new Paciente(fecha,nombre,matricula,sexo,edad,telefono,religion,ocupacion,edoCivil,origen,radica,escolaridad,higiene,pasatiempo,alimentacion,dominio, hijos
-                        ,diabetes,HTA,cancer,enfReumat,cardiopatias,cirugias,tabaquismo,alergias,transfusiones,accidentes,fracturas,etilismo, 
-                        TA,TEMP,FR,FC,Reflejos,Sensibilidad,LenguajeOrientacion,sitioEspasmos,sitioCicatriz,queloide,retractil,abierta,adherencias,hipertrofica,libre,claudicante,
-                        ayuda,espastica,ataxica,independienteInicial,sillaDeRuedasInicial,ayudasInicial,camillaInicial,independienteFinal,sillaDeRuedasFinal,ayudasFinal,camillaFinal,regionDolor,
-                        valInicial,valFinal);
-                        
-                        repoPac.agregarPaciente(pac);
+                            Paciente pac = new Paciente(fecha,nombre,matricula,sexo,edad,telefono,religion,ocupacion,edoCivil,origen,radica,escolaridad,higiene,pasatiempo,alimentacion,dominio, hijos
+                            ,diabetes,HTA,cancer,enfReumat,cardiopatias,cirugias,tabaquismo,alergias,transfusiones,accidentes,fracturas,etilismo, 
+                            TA,TEMP,FR,FC,Reflejos,Sensibilidad,LenguajeOrientacion,sitioEspasmos,sitioCicatriz,queloide,retractil,abierta,adherencias,hipertrofica,libre,claudicante,
+                            ayuda,espastica,ataxica,independienteInicial,sillaDeRuedasInicial,ayudasInicial,camillaInicial,independienteFinal,sillaDeRuedasFinal,ayudasFinal,camillaFinal,regionDolor,
+                            valInicial,valFinal);
 
-                        txt_nombre.setText("");
-                        txt_matricula.setText("");
-                        txt_edad.setText("");
-                        txt_telefono.setText("");
-                        txt_religion.setText("");
-                        txt_ocupacion.setText("");
-                        txt_fecha.setText(cale.getComponenteFecha());
-                    } else {
+                            repoPac.agregarPaciente(pac);
+
+                            txt_nombre.setText("");
+                            txt_matricula.setText("");
+                            cb_sexo.setSelectedIndex(0);
+                            txt_edad.setText("");
+                            txt_telefono.setText("");
+                            txt_religion.setText("");
+                            txt_ocupacion.setText("");
+                            cb_estadoCivil.setSelectedIndex(0);
+                            txt_origen.setText("");
+                            txt_radica.setText("");
+                            cb_escolaridad.setSelectedIndex(0);
+                            txt_higienePNAL.setText("");
+                            txt_alimentacion.setText("");
+                            txt_pasatiempo.setText("");
+                            cb_dominio.setSelectedIndex(0);
+                            cb_hijos.setSelectedIndex(0);
+
+                             //panel cuatro
+                            ck_Tabaquismo.setSelected(false);
+                            ck_Etilismo.setSelected(false);
+                            ck_Diabetes.setSelected(false);
+                            ck_HTA.setSelected(false);
+                            ck_Cancer.setSelected(false);
+                            ck_EnfReumat.setSelected(false);
+                            ck_Cardiopatias.setSelected(false);
+                            ck_Cirugias.setSelected(false);
+                            ck_Alergias.setSelected(false);
+                            ck_Transfusiones.setSelected(false);
+                            ck_Accidentes.setSelected(false);
+                            ck_Encames.setSelected(false);
+                            ck_Fracturas.setSelected(false);
+                            txt_TA.setText("");
+                            txt_TEMP.setText("");
+                            txt_FC.setText("");
+                            txt_FR.setText("");
+                             //panel seis
+                            txt_Rfelejos.setText("");
+                            txt_Sensibilidad.setText("");
+                            txt_Lenguaje_Orientacion.setText("");
+                             //panel ocho
+                            txt_sitio_espasmos.setText("");
+                             //panel diez
+                            txt_sitio_cicatriz.setText("");
+                            ck_queloide.setSelected(false);
+                            ck_retractil.setSelected(false);
+                            ck_abierta.setSelected(false);
+                            ck_adherencias.setSelected(false);
+                            ck_hipertrofica.setSelected(false);
+                             //panel doce
+                            ck_libre.setSelected(false);
+                            ck_claudicante.setSelected(false);
+                            ck_ayuda.setSelected(false);
+                            ck_espastica.setSelected(false);
+                            ck_ataxica.setSelected(false);
+                             //panel catorce
+                            ck_independiente.setSelected(false);
+                            ck_sillaDeRuedas.setSelected(false);
+                            ck_ayudas.setSelected(false);
+                            ck_camilla.setSelected(false);
+                            ck_independiente_Final.setSelected(false);
+                            ck_sillaDeRuedas_Final.setSelected(false);
+                            ck_ayudas_Final.setSelected(false);
+                            ck_camilla_Final.setSelected(false);
+                             //panel dieciseis
+                            txt_region_dolor.setText("");
+                            cb_final.setSelectedIndex(0);
+                            cb_inicial.setSelectedIndex(0);
+                           txt_fecha.setText(cale.getComponenteFecha());
+                        } else {
+                        }
+
+                    } catch (DiaInvalido | MesInvalido ex) {
                     }
-
-                } catch (DiaInvalido | MesInvalido ex) {
                 }
             }
         });
+        
+        btn_guardar.addMouseListener(new WrapperMouse() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                seleccion = 1;
+            }
+        });
+
     }
+
 
     private void agregarComponentes(JComponent contenedor, JComponent componente,
             int gridX, int gridY,

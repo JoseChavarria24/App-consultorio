@@ -7,6 +7,7 @@ import modelo.conexion.ConexionBD;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -47,7 +48,8 @@ public class DaoPacienteBD {
                     +"EnSillaDeRuedas, ConAyudas, EnCamilla, IndependienteFinal, "
                     +"EnSillaDeRuedasFinal, AyudasFinal, EnCamillaFinal, RegionDolor, "
                     +"ValoracionInicial, ValoracionFinal)"
-                    + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
+                    +"VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; 
+            
             ps = conexion.prepareStatement(qryInsert, 
                     Statement.RETURN_GENERATED_KEYS);
             ps.setString(1,String.valueOf(cte.getMatricula()));
@@ -111,6 +113,8 @@ public class DaoPacienteBD {
             int numeroRegistrosIns = ps.executeUpdate();
             
             ResultSet rs;
+            rs = ps.executeQuery();
+            
             if (numeroRegistrosIns == 0) {
                     throw new SQLException("No se pudo guardar");
             }else{
@@ -251,6 +255,8 @@ public class DaoPacienteBD {
             ps.setString(57,String.valueOf(cte.getValInicial()));
             ps.setString(58,String.valueOf(cte.getValFinal()));
             
+            ResultSet rs;
+            rs = ps.executeQuery();
             numRegistrosModificados =ps.executeUpdate();
         }catch (SQLException ex){
             JOptionPane.showMessageDialog(null, "Error " + ex.getMessage());
@@ -269,6 +275,9 @@ public class DaoPacienteBD {
             ps = conexion.prepareStatement(qryDelete);
             ps.setString(1,String.valueOf(cte.getMatricula()));
             numRegistrosEliminados = ps.executeUpdate();
+            ResultSet rs;
+            rs = ps.executeQuery();
+            
         }catch (SQLException ex){
             numRegistrosEliminados = 0;
         }
@@ -294,10 +303,68 @@ public class DaoPacienteBD {
                 String sexo = consulta.getString("Sexo");
                 String edad = consulta.getString("Edad");
                 String telefono = consulta.getString("Telefono");
-                String estadoCivil = consulta.getString("EdoCiv");
+                String edoCivil = consulta.getString("EdoCiv");
                 String religion = consulta.getString("Religion");
                 String ocupacion = consulta.getString("Ocupacion");
-                return new Paciente(fecha.sacarFechaCadena(fechaNacimiento),nombre, Integer.parseInt( matricula), (sexo+""), Integer.parseInt(edad),Integer.parseInt(telefono),estadoCivil, religion, ocupacion);
+                String origen = consulta.getString("OriginarioDe");
+                String radica = consulta.getString("RadicaEn");
+                String escolaridad = consulta.getString("Escolaridad");
+                String higiene = consulta.getString("HIgiene");
+                String pasatiempo = consulta.getString("Pasatiempo");
+                String alimentacion = consulta.getString("Alimentacion");
+                String dominio = consulta.getString("Dominio");
+                String hijos = consulta.getString("Hijos");
+                String diabetes = consulta.getString("Diabetes");
+                String HTA = consulta.getString("HTA");
+                String cancer = consulta.getString("Cancer");
+                String enfReumat = consulta.getString("EnfReumat");
+                String cardiopatias = consulta.getString("Cardiopatias");
+                String cirugias = consulta.getString("Cirugias");
+                String tabaquismo = consulta.getString("Tabaquismo");
+                String alergias = consulta.getString("Alergias");
+                String transfusiones = consulta.getString("Transfusiones");
+                String accidentes = consulta.getString("Accidentes");
+                String fracturas = consulta.getString("Fracturas");
+                String etilismo = consulta.getString("Fracturas");
+                String TA = consulta.getString("TA");
+                String TEMP = consulta.getString("Temperatura");
+                String FR = consulta.getString("FR");
+                String FC = consulta.getString("FC");
+                String Reflejos = consulta.getString("Reflejos");
+                String Sensibilidad = consulta.getString("Sensibilidad");
+                String LenguajeOrientacion = consulta.getString("LenguajeOrientacion");
+                String sitioEspasmos = consulta.getString("SitioEspasmos");
+                String sitioCicatriz = consulta.getString("SitioCicatriz");
+                String queloide = consulta.getString("Queloide");
+                String retractil = consulta.getString("Retractil");
+                String abierta = consulta.getString("Abierta");
+                String adherencias = consulta.getString("Adherencias");
+                String hipertrofica = consulta.getString("Hipertrofica");
+                String libre = consulta.getString("Libre");
+                String claudicante = consulta.getString("Claudicante");
+                String ayuda = consulta.getString("Ayuda");
+                String espastica = consulta.getString("Espastica");
+                String ataxica = consulta.getString("Ataxica");
+                String independienteInicial = consulta.getString("Independiente");
+                String sillaDeRuedasInicial = consulta.getString("SillaDeRuedas");
+                String ayudasInicial = consulta.getString("ConAyudas");
+                String camillaInicial = consulta.getString("EnCamilla");
+                String independienteFinal = consulta.getString("IndependienteFinal");
+                String sillaDeRuedasFinal = consulta.getString("SillaDeRuedasFinal");
+                String ayudasFinal = consulta.getString("AyudasFinal");
+                String camillaFinal = consulta.getString("EnCamillaFinal");
+                String regionDolor = consulta.getString("RegionDolor");
+                String valInicial = consulta.getString("ValoracionInicial");
+                String valFinal = consulta.getString("ValoracionFinal");
+                ResultSet rs;
+                rs = ps.executeQuery();
+                
+                return  new Paciente(fecha.sacarFechaCadena(fechaNacimiento),nombre,matricula,sexo,edad,telefono,religion,ocupacion,edoCivil,origen,radica,escolaridad,higiene,pasatiempo,alimentacion,dominio, hijos
+                        ,diabetes,HTA,cancer,enfReumat,cardiopatias,cirugias,tabaquismo,alergias,transfusiones,accidentes,fracturas,etilismo, 
+                        TA,TEMP,FR,FC,Reflejos,Sensibilidad,LenguajeOrientacion,sitioEspasmos,sitioCicatriz,queloide,retractil,abierta,adherencias,hipertrofica,libre,claudicante,
+                        ayuda,espastica,ataxica,independienteInicial,sillaDeRuedasInicial,ayudasInicial,camillaInicial,independienteFinal,sillaDeRuedasFinal,ayudasFinal,camillaFinal,regionDolor,
+                        valInicial,valFinal);
+                //return new Paciente(fecha.sacarFechaCadena(fechaNacimiento),nombre, Integer.parseInt( matricula), (sexo+""), Integer.parseInt(edad),Integer.parseInt(telefono),estadoCivil, religion, ocupacion);
             }else {
                 return null;
             }
@@ -319,20 +386,74 @@ public class DaoPacienteBD {
             while(consulta.next()){
                 
                 
-                String matricula = consulta.getString("matricula");
-                String nombre = consulta.getString("nombre");
-                String fechaNacimiento = consulta.getString("fechaNacimiento");
-                String sexo = consulta.getString("sexo");
-                String edad = consulta.getString("edad");
-                String telefono = consulta.getString("telefono");
-                String estadoCivil = consulta.getString("estadoCivil");
-                String religion = consulta.getString("religion");
-                String ocupacion = consulta.getString("ocupacion");
+                String matricula = consulta.getString("idPacientes");
+                String nombre = consulta.getString("Nombre");
+                String fechaNacimiento = consulta.getString("FechaRegistro");
+                String sexo = consulta.getString("Sexo");
+                String edad = consulta.getString("Edad");
+                String telefono = consulta.getString("Telefono");
+                String edoCivil = consulta.getString("EstadoCivil");
+                String religion = consulta.getString("Religion");
+                String ocupacion = consulta.getString("Ocupacion");
+                String origen = consulta.getString("OriginarioDe");
+                String radica = consulta.getString("RadicaEn");
+                String escolaridad = consulta.getString("Escolaridad");
+                String higiene = consulta.getString("HIgiene");
+                String pasatiempo = consulta.getString("Pasatiempo");
+                String alimentacion = consulta.getString("Alimentacion");
+                String dominio = consulta.getString("Dominio");
+                String hijos = consulta.getString("Hijos");
+                String diabetes = consulta.getString("Diabetes");
+                String HTA = consulta.getString("HTA");
+                String cancer = consulta.getString("Cancer");
+                String enfReumat = consulta.getString("EnfReumat");
+                String cardiopatias = consulta.getString("Cardiopatias");
+                String cirugias = consulta.getString("Cirugias");
+                String tabaquismo = consulta.getString("Tabaquismo");
+                String alergias = consulta.getString("Alergias");
+                String transfusiones = consulta.getString("Transfusiones");
+                String accidentes = consulta.getString("Accidentes");
+                String fracturas = consulta.getString("Fracturas");
+                String etilismo = consulta.getString("Fracturas");
+                String TA = consulta.getString("TA");
+                String TEMP = consulta.getString("Temperatura");
+                String FR = consulta.getString("FR");
+                String FC = consulta.getString("FC");
+                String Reflejos = consulta.getString("Reflejos");
+                String Sensibilidad = consulta.getString("Sensibilidad");
+                String LenguajeOrientacion = consulta.getString("LenguajeOrientacion");
+                String sitioEspasmos = consulta.getString("SitioEspasmos");
+                String sitioCicatriz = consulta.getString("SitioCicatriz");
+                String queloide = consulta.getString("Queloide");
+                String retractil = consulta.getString("Retractil");
+                String abierta = consulta.getString("Abierta");
+                String adherencias = consulta.getString("Adherencias");
+                String hipertrofica = consulta.getString("Hipertrofica");
+                String libre = consulta.getString("Libre");
+                String claudicante = consulta.getString("Claudicante");
+                String ayuda = consulta.getString("Ayuda");
+                String espastica = consulta.getString("Espastica");
+                String ataxica = consulta.getString("Ataxica");
+                String independienteInicial = consulta.getString("Independiente");
+                String sillaDeRuedasInicial = consulta.getString("SillaDeRuedas");
+                String ayudasInicial = consulta.getString("ConAyudas");
+                String camillaInicial = consulta.getString("EnCamilla");
+                String independienteFinal = consulta.getString("IndependienteFinal");
+                String sillaDeRuedasFinal = consulta.getString("SillaDeRuedasFinal");
+                String ayudasFinal = consulta.getString("AyudasFinal");
+                String camillaFinal = consulta.getString("EnCamillaFinal");
+                String regionDolor = consulta.getString("RegionDolor");
+                String valInicial = consulta.getString("ValoracionInicial");
+                String valFinal = consulta.getString("ValoracionFinal");
                 
-                
-                Paciente cte = new Paciente(fecha.sacarFechaCadena(fechaNacimiento),nombre, Integer.parseInt( matricula), sexo, Integer.parseInt(edad),Integer.parseInt(telefono),estadoCivil, religion, ocupacion);
+                Paciente cte = new Paciente(fecha.sacarFechaCadena(fechaNacimiento),nombre,matricula,sexo,edad,telefono,religion,ocupacion,edoCivil,origen,radica,escolaridad,higiene,pasatiempo,alimentacion,dominio, hijos
+                        ,diabetes,HTA,cancer,enfReumat,cardiopatias,cirugias,tabaquismo,alergias,transfusiones,accidentes,fracturas,etilismo, 
+                        TA,TEMP,FR,FC,Reflejos,Sensibilidad,LenguajeOrientacion,sitioEspasmos,sitioCicatriz,queloide,retractil,abierta,adherencias,hipertrofica,libre,claudicante,
+                        ayuda,espastica,ataxica,independienteInicial,sillaDeRuedasInicial,ayudasInicial,camillaInicial,independienteFinal,sillaDeRuedasFinal,ayudasFinal,camillaFinal,regionDolor,
+                        valInicial,valFinal);
                 pacientes.add(cte);
-                
+                ResultSet rs;
+                rs = ps.executeQuery();
             }
             return pacientes;
         }catch (SQLException e){
